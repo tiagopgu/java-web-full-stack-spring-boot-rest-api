@@ -4,6 +4,14 @@ public class Inicio {
 
 	public static void main(String[] args) {
 		variaveisTiposPrimitivos();
+		
+		System.out.println();		
+		
+		testeTexto();
+
+		System.out.println();
+
+		testeOperacoesMatematicas();
 	}
 
 	public static void variaveisTiposPrimitivos() {
@@ -74,5 +82,39 @@ public class Inicio {
 		
 		System.out.println("\nVariável tipo char");
 		System.out.println("\t- Valor inicializado: " + tpChar);
+	}
+
+	public static void testeTexto() {
+		char sexo = 'M';
+		String nomeCompleto = "Tiago Pires Guimarães";
+		
+		System.out.println("Tipos de texto");
+		
+		System.out.println("\tNome: " + nomeCompleto +
+				"\n\tSexo: " + sexo);
+	}
+
+	public static void testeOperacoesMatematicas() {
+		int numero1 = 15;
+		int numero2 = 23;
+		int numero3 = 5;
+		double numero4 = 5.0;
+
+		System.out.println("Operações matemáticas");
+
+		System.out.println("\tSoma de inteiros: " + numero1 + " + " + numero3 + " = " + (numero1 + numero3));
+		System.out.println("\tSoma de inteiro e double: " + numero1 + " + " + numero4 + " = " + (numero1 + numero4));
+
+		System.out.println("\n\tSubtração de inteiros: " + numero1 + " - " + numero3 + " = " + (numero1 - numero3));
+		System.out.println("\tSubtração de inteiro e double: " + numero1 + " - " + numero4 + " = " + (numero1 - numero4));
+
+		System.out.println("\n\tMultiplicação de inteiros: " + numero1 + " * " + numero3 + " = " + (numero1 * numero3));
+		System.out.println("\tMultiplicação de inteiro e double: " + numero1 + " * " + numero4 + " = " + (numero1 * numero4));
+
+		System.out.println("\n\tDivisão inteira: " + "((" + numero1 + " + " + numero2 + ")" + " / " + numero3 + ")" + " = " + ((numero1 + numero2) / numero3));
+		System.out.println("\tDivisão inteira e double: " + "((" + numero1 + " + " + numero2 + ")" + " / " + numero4 + ")" + " = " + ((numero1 + numero2) / numero4));
+
+		System.out.println("\n\tResto da divisão: " + "((" + numero1 + " + " + numero2 + ")" + " % " + numero3 + ")" + " = " + ((numero1 + numero2) % numero3));
+		System.out.println("\tResto da divisão de inteiro e double: " + "((" + numero1 + " + " + numero2 + ")" + " % " + numero4 + ")" + " = " + ((numero1 + numero2) % numero4));
 	}
 }
