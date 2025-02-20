@@ -1,4 +1,4 @@
-package curso_java;
+package curso.java;
 
 public class Inicio {
 
