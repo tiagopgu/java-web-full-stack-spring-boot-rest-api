@@ -19,7 +19,7 @@
 ## Execução da aplicação
 
 - Código-fonte (arquivo _.java_ escrito pelo desenvolvedor) é compilado (pelo _javac_) e transformado em código intermediário (arquivo _.class_, também chamado de byte-code)
-- Código intermediário é transformado me código de máquina pela máquina virtual (JVM) de cada plataforma
+- Código intermediário é transformado em código de máquina pela máquina virtual (JVM) de cada plataforma
 
 ## Nomenclaturas
 
@@ -41,7 +41,7 @@
     Obs2.: Configurar dentro de variáveis do sistema\
     Obs3.: Caso o comando de verificação de versão não funcione, pode ser necessário reiniciar o equipamento\
     Obs4.: Caso o terminal não reconheça o comando de verificação de versão, inserir no início da variável de ambiente Path, o mesmo valor da variável de ambiente JAVA_HOME
-- Verificar versão instalada: `java -version`
+- Verificar, via CLI, a versão instalada: `java -version`
 
 ## IDE
 
