@@ -47,7 +47,7 @@
 
 ## Tipos primitivos
 
-- São os tipos mais básicos e usuais de uma linguagem de programação
+São os tipos mais básicos e usuais de uma linguagem de programação
 
 ### Tipos numéricos integrais
 
