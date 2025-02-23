@@ -11,6 +11,10 @@ public class Inicio {
 
 		System.out.println();
 
+		testeConcatenacao();
+
+		System.out.println();
+
 		testeOperacoesMatematicas();
 	}
 
@@ -94,16 +98,37 @@ public class Inicio {
 				"\n\tSexo: " + sexo);
 	}
 
+	public static void testeConcatenacao() {
+		String nome = "Fulano de Tal";
+		char sexo = 'M';
+		String cidade = "Brasília";
+		String uf = "DF";
+		int idade = 30;
+		float altura = 1.68F;
+
+		// Juntando texto com a concatenação
+		String saida = "Meu nome é " + nome + " (sexo " + sexo + ") e tenho " + idade + " anos. Tenho " + altura + " de altura. Sou de " + cidade + "-" + uf + ".";
+
+		System.out.println("Teste de concatenação");
+		System.out.println("\t" + saida);
+	}
+
 	public static void testeOperacoesMatematicas() {
 		int numero1 = 15;
 		int numero2 = 23;
-		int numero3 = 5;
+		long numero3 = 5L;
 		double numero4 = 5.0;
 
 		System.out.println("Operações matemáticas");
 
-		System.out.println("\tSoma de inteiros: " + numero1 + " + " + numero3 + " = " + (numero1 + numero3));
-		System.out.println("\tSoma de inteiro e double: " + numero1 + " + " + numero4 + " = " + (numero1 + numero4));
+		//int resultado1 = numero1 + numero3; // Erro
+		long resultado1 = numero1 + numero3;
+
+		//int resultado2 = numero1 + numero4; // Erro
+		double resultado2 = numero1 + numero4;
+
+		System.out.println("\tSoma de inteiros: " + numero1 + " + " + numero3 + " = " + resultado1);
+		System.out.println("\tSoma de inteiro e double: " + numero1 + " + " + numero4 + " = " + resultado2);
 
 		System.out.println("\n\tSubtração de inteiros: " + numero1 + " - " + numero3 + " = " + (numero1 - numero3));
 		System.out.println("\tSubtração de inteiro e double: " + numero1 + " - " + numero4 + " = " + (numero1 - numero4));
@@ -111,8 +136,13 @@ public class Inicio {
 		System.out.println("\n\tMultiplicação de inteiros: " + numero1 + " * " + numero3 + " = " + (numero1 * numero3));
 		System.out.println("\tMultiplicação de inteiro e double: " + numero1 + " * " + numero4 + " = " + (numero1 * numero4));
 
-		System.out.println("\n\tDivisão inteira: " + "((" + numero1 + " + " + numero2 + ")" + " / " + numero3 + ")" + " = " + ((numero1 + numero2) / numero3));
-		System.out.println("\tDivisão inteira e double: " + "((" + numero1 + " + " + numero2 + ")" + " / " + numero4 + ")" + " = " + ((numero1 + numero2) / numero4));
+		long resultado3 = ((numero1 + numero2) / numero3);
+
+		//long resultado4 = ((numero1 + numero2) / numero4); // Erro
+		double resultado4 = ((numero1 + numero2) / numero4);
+
+		System.out.println("\n\tDivisão inteira: " + "((" + numero1 + " + " + numero2 + ")" + " / " + numero3 + ")" + " = " + resultado3);
+		System.out.println("\tDivisão inteira e double: " + "((" + numero1 + " + " + numero2 + ")" + " / " + numero4 + ")" + " = " + resultado4);
 
 		System.out.println("\n\tResto da divisão: " + "((" + numero1 + " + " + numero2 + ")" + " % " + numero3 + ")" + " = " + ((numero1 + numero2) % numero3));
 		System.out.println("\tResto da divisão de inteiro e double: " + "((" + numero1 + " + " + numero2 + ")" + " % " + numero4 + ")" + " = " + ((numero1 + numero2) % numero4));
