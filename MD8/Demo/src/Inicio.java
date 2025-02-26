@@ -5,6 +5,10 @@ public class Inicio {
         testeEstruturaDecisao();
 
         testeOperadorTernario();
+
+        System.out.println();
+
+        testeEstruturaSelecao();
     }
 
     public static void testeEstruturaDecisao() {
@@ -72,5 +76,77 @@ public class Inicio {
         String situacao = ativo && mes >= 6 ? "Cadastro liberado" : "Ainda não completou o prazo para cadastro";
 
         System.out.println(situacao);
+    }
+
+    public static void testeEstruturaSelecao() {
+        System.out.println("Teste Estrutura Seleção\n");
+
+        executarOperacaoSintetizador(1);
+        executarOperacaoSintetizador(2);
+        executarOperacaoSintetizador(3);
+        executarOperacaoSintetizador(4);
+        executarOperacaoSintetizador(5);
+        executarOperacaoSintetizador(6);
+        executarOperacaoSintetizador(7);
+    }
+
+    public static void executarOperacaoSintetizador(int diaSemana) {
+        System.out.print("Iniciando operação do dia\n");
+        System.out.println(retornarDescricaoDiaSemana(diaSemana) + "\n");
+
+        switch (diaSemana) {
+            case 1:
+                System.out.println("\tIniciando sistema de abastecimento...");
+                System.out.println("\tAbastecimento em 50%...");
+                System.out.println("\tAbastecimento em 90%...");
+                System.out.println("\tAbastecimento finalizado.\n");
+                break;
+            case 2:
+                System.out.println("\tIniciando coleta de insumos...");
+                System.out.println("\tColeta em 30%...");
+                System.out.println("\tColeta em 50%...");
+                System.out.println("\tColeta em 80%...");
+                System.out.println("\tColeta finalizada.\n");
+                break;
+            case 3:
+            case 4:
+            case 5:
+                System.out.println("\tIniciando Sintetização...");
+                System.out.println("\t10 materiais sintetizados...");
+                System.out.println("\t15 materiais sintetizados...");
+                System.out.println("\t150 materiais sintetizados...");
+                System.out.println("\tSíntese finalizada. Entrando em modo de resfriamento.\n");
+                break;
+            case 6:
+                System.out.println("\tIniciando despacho de itens...");
+                System.out.println("\t10 itens despachados...");
+                System.out.println("\t30 itens despachados...");
+                System.out.println("\t60 itens despachados...");
+                System.out.println("\tDespacho de itens finalizados.\n");
+                break;
+            case 7:
+                System.out.println("\tIniciando sistema de limpeza...");
+                System.out.println("\tLimpeza em 10%...");
+                System.out.println("\tLimpeza em 30%...");
+                System.out.println("\tLimpeza em 70%...");
+                System.out.println("\tLimpeza finalizada.\n");
+                break;
+            default:
+                System.out.println("Erro de sistema: dia inválido");
+                break;
+        }
+    }
+
+    public static String retornarDescricaoDiaSemana(int diaSemana) {
+        return switch(diaSemana) {
+            case 1 -> "Domingo";
+            case 2 -> "Segunda-feira";
+            case 3 -> "Terça-feira";
+            case 4 -> "Quarta-feira";
+            case 5 -> "Quinta-feira";
+            case 6 -> "Sexta-feira";
+            case 7 -> "Sábado";
+            default -> "Dia Inválido";
+        };
     }
 }

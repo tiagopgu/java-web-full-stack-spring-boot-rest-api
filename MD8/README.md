@@ -37,3 +37,36 @@ if (media >= 7F) { // Entra no bloco se verdade
 - Sintaxe: `tipo_dado resultado = condicao_logica ? retorno_quando_true : retorno_quando_false;`
 
 > [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/454fb1878aad516a7784992d1f4e666da79fbd38/MD8/Demo/src/Inicio.java#L7)
+
+## Estrutura Seleção
+
+- Executa um bloco de código com base em um valor testado
+- Pode substituir o uso de `if/else if/else`
+- Sintaxe:
+
+  ~~~java
+  /* Estrutura abaixo permite executar um bloco de código */
+  switch (valor_testar) {
+    case valor_1:
+        // Executa um bloco de código
+        break; // Finaliza o teste de valor e sai da estrutura
+    case valor_2:
+        // Executa um bloco de código
+        break; // Finaliza o teste de valor e sai da estrutura
+    case valor_3:
+    case valor_4:
+        // Executa um bloco de código para qualquer um dos dois casos anteriores
+        break; // Finaliza o teste de valor e sai da estrutura
+    default:
+        // Executa um bloco de código para quando nenhum caso anterior corresponder ao valor
+        break; // Sai da estrutura
+  }
+  
+  /* Estrura abaixo retorna um valor com base no valor testado. Retorno deve ser do mesmo tipo*/
+  String retorno = switch(valor_testar) {
+    case valor_1 -> "Valor Retorno 1";
+    case valor_2 -> "Valor Retorno 2";
+    case valor_3 -> "Valor Retorno 3";
+    default -> "Valor Retorno padrão";
+  };
+  ~~~
