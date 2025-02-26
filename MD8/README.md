@@ -70,3 +70,5 @@ if (media >= 7F) { // Entra no bloco se verdade
     default -> "Valor Retorno padrão";
   };
   ~~~
+
+> [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/120f70818852728443f984ccbf81a79395d17da3/MD8/Demo/src/Inicio.java#L11)
