@@ -36,4 +36,4 @@ if (media >= 7F) { // Entra no bloco se verdade
 - Pode ser aninhado, porém, é desaconselhável por dificultar a leitura do código
 - Sintaxe: `tipo_dado resultado = condicao_logica ? retorno_quando_true : retorno_quando_false;`
 
-> [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/74cdec436f423520b8a8933aea810158b5172a39/MD8/Demo/src/Inicio.java#L7)
+> [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/454fb1878aad516a7784992d1f4e666da79fbd38/MD8/Demo/src/Inicio.java#L7)
