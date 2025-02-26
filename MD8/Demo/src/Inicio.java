@@ -3,6 +3,8 @@ public class Inicio {
 
     public static void main(String[] args) {
         testeEstruturaDecisao();
+
+        testeOperadorTernario();
     }
 
     public static void testeEstruturaDecisao() {
@@ -54,5 +56,21 @@ public class Inicio {
         }
 
         return situacao;
+    }
+
+    public static void testeOperadorTernario() {
+        boolean ativo = true;
+
+        System.out.println("Teste Operador Ternário\n");
+
+        System.out.println("Seu acesso está " + (ativo ? "liberado" : "bloqueado"));
+
+        int mes = 5;
+
+        System.out.println("Você está no " + (mes <= 6 ? "1º" : "2º") + " semestre do ano.");
+
+        String situacao = ativo && mes >= 6 ? "Cadastro liberado" : "Ainda não completou o prazo para cadastro";
+
+        System.out.println(situacao);
     }
 }
