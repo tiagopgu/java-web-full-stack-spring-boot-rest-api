@@ -253,15 +253,23 @@ public class Inicio {
 
     public static void testeEntradaESaidaDadosComDialog() {
         System.out.println("Teste de Entrada e Saída com Dialog\n");
+        boolean continuarCalculo = false;
 
-        int qtdFrutas = Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade de frutas para distribuir"));
-        int qtdPessoas = Integer.parseInt(JOptionPane.showInputDialog("Informa a quatidade de pessoas"));
+        do {
+            int qtdFrutas = Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade de frutas para distribuir"));
+            int qtdPessoas = Integer.parseInt(JOptionPane.showInputDialog("Informa a quatidade de pessoas"));
 
-        int qtdPorPessoa = qtdFrutas / qtdPessoas;
-        int qtdFrutasSobra = qtdFrutas % qtdPessoas;
+            int qtdPorPessoa = qtdFrutas / qtdPessoas;
+            int qtdFrutasSobra = qtdFrutas % qtdPessoas;
 
-        JOptionPane.showMessageDialog(null, "Total Frutas: " + qtdFrutas +
-                "\nTotal Pessoas: " + qtdPessoas +
-                "\n\nCada pessoa ficou com " + qtdPorPessoa + " frutas, sobrando " + qtdFrutasSobra + " frutas.");
+            JOptionPane.showMessageDialog(null, "Total Frutas: " + qtdFrutas +
+                    "\nTotal Pessoas: " + qtdPessoas +
+                    "\n\nCada pessoa ficou com " + qtdPorPessoa + " frutas, sobrando " + qtdFrutasSobra + " frutas.");
+
+            int result = JOptionPane.showConfirmDialog(null, "Deseja fazer um novo cálculo? ", "Novo cálculo", JOptionPane.YES_NO_OPTION);
+
+            continuarCalculo = result == 0;
+
+        } while(continuarCalculo);
     }
 }

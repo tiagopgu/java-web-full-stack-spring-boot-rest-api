@@ -82,6 +82,9 @@ A seguir a lista dos principais recursos usados no Java para o desenvolvimento
 - Interface gráfica
   - Entrada de dados: `String entrada = JOptionPanel.showInputDialog("Descrição do campo");`
   - Saída de dados: `JOptionPanel.showMessageDialog(null, "Mensagem de saída");`
+  - Tela de confirmação: `int resultado = JOptionPanel.showConfirmDialog(null, "Mensagem", ["Título da janela"], [JOptionPanel.YES_NO_OPTION]);`
+    - Retornos: _Yes_ retorna `0` e _No_ retorna `1`
+    - É opcional alterar o título da janela e as opções (que por padrão são Yes/No/Cancel) passando mais dois parâmetros
   
   > Obs.: Necessário realizar o seguinte import: `import javax.swing.*;`
   > 
