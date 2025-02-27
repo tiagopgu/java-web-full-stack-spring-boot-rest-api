@@ -216,5 +216,20 @@ public class Inicio {
             System.out.print(separador + contador);
             separador = ", ";
         }
+
+        System.out.print("\n\tTeste break: ");
+
+        separador = "";
+
+        for(contador = 0; contador <= limite; contador++) {
+            System.out.print(separador + contador);
+
+            if (contador >= 30 && contador % 7 == 0) {
+                System.out.print("... encontrei um número maior que 30 e divisível por 7 ...");
+                break;
+            }
+
+            separador = ", ";
+        }
     }
 }

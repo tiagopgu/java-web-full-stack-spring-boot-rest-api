@@ -133,3 +133,21 @@ if (media >= 7F) { // Entra no bloco se verdade
   ~~~
 
 > [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/6659186c5cebb7b0a990da311d677849a80f06b9/MD8/Demo/src/Inicio.java#L211)
+
+### Forçando parada
+
+- Usar a palavra-chave `break` permite a saída do laço antes da condição se tornar `false`
+- Sintaxe:
+
+  ~~~java
+  for (declaracao_e_inicializacao_contador; condicao_parada; atualizacao_contador) {
+    codigo;
+  
+    if (condicao) {
+        codigo;
+        break; // força a saída antes da condicao_parada ser false
+    }
+  
+    codigo;
+  }
+  ~~~
