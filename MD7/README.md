@@ -64,6 +64,8 @@ São os tipos mais básicos e usuais de uma linguagem de programação
 > Em operações matemáticas, o resultado será sempre o do maior tipo envolvido. Ou seja: na soma de um int com um long, o resultado será long
 > 
 > Em operações matemáticas envolvendo divisão, se todos os tipos forem integrais, o resultado será um integral, mesmo que, na prática, tenha ponto flutuante. Ou seja: a divisão de um int por outro int sempre resulta em int, mesmo que o resultado possua casas decimais
+> 
+> Use % para retornar o resto de um divisão. Exemplo: 9 % 2 resulta em 1
 
 ### Tipos numéricos de ponto flutuante
 
