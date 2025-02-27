@@ -100,6 +100,8 @@ if (media >= 7F) { // Entra no bloco se verdade
   }
   ~~~
 
+> [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/84ff032434db3b98d13461163b0dd771f28f93c0/MD8/Demo/src/Inicio.java#L187)
+
 ### Teste no final
 
 - Testa a condição lógica no final do laço
@@ -113,3 +115,5 @@ if (media >= 7F) { // Entra no bloco se verdade
     alteracao_para_permitir_que_condicao_logica_falhe_em_algum_momento_para_encerrar_laco;
   } while (condicao_logica)
   ~~~
+
+> [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/84ff032434db3b98d13461163b0dd771f28f93c0/MD8/Demo/src/Inicio.java#L200)
