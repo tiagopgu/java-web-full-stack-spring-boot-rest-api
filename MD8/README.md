@@ -16,20 +16,24 @@
 - Exemplo:
 
 ~~~java
-float media = 7.1F;
+class Exemplo {
+    public static void main(String[] args) {
+        float media = 7.1F;
 
-if (media >= 7F) { // Entra no bloco se verdade
-    System.out.println("Aprovado");    
-} else if (media >= 5F) { // Podem existir mais de uma condição, caso a anterior falhe
-    System.out.println("Em Recuperação");
-} else { // Pode existir um caso padrão, caso todos os anteriores falhe
-    media = media + .25F;
-    
-    // Pode ser aninhado dentro de outro if/else
-    if (media >= 5F) {
-        System.out.println("Em Recuperação");
-    } else {
-        System.out.println("Reprovado");
+        if (media >= 7F) { // Entra no bloco se verdade
+            System.out.println("Aprovado");
+        } else if (media >= 5F) { // Podem existir mais de uma condição, caso a anterior falhe
+            System.out.println("Em Recuperação");
+        } else { // Pode existir um caso padrão, caso todos os anteriores falhe
+            media = media + .25F;
+
+            // Pode ser aninhado dentro de outro if/else
+            if (media >= 5F) {
+                System.out.println("Em Recuperação");
+            } else {
+                System.out.println("Reprovado");
+            }
+        }
     }
 }
 ~~~
@@ -53,30 +57,35 @@ if (media >= 7F) { // Entra no bloco se verdade
 - Sintaxe:
 
   ~~~java
-  /* Estrutura abaixo permite executar um bloco de código */
-  switch (valor_testar) {
-    case valor_1:
-        // Executa um bloco de código
-        break; // Finaliza o teste de valor e sai da estrutura
-    case valor_2:
-        // Executa um bloco de código
-        break; // Finaliza o teste de valor e sai da estrutura
-    case valor_3:
-    case valor_4:
-        // Executa um bloco de código para qualquer um dos dois casos anteriores
-        break; // Finaliza o teste de valor e sai da estrutura
-    default:
-        // Executa um bloco de código para quando nenhum caso anterior corresponder ao valor
-        break; // Sai da estrutura
-  }
+  class Exemplo {
+    public static void main(String[] args) {
   
-  /* Estrura abaixo retorna um valor com base no valor testado. Retorno deve ser do mesmo tipo*/
-  String retorno = switch(valor_testar) {
-    case valor_1 -> "Valor Retorno 1";
-    case valor_2 -> "Valor Retorno 2";
-    case valor_3 -> "Valor Retorno 3";
-    default -> "Valor Retorno padrão";
-  };
+        /* Estrutura abaixo permite executar um bloco de código */
+        switch (valor_testar) {
+            case valor_1:
+                // Executa um bloco de código
+                break; // Finaliza o teste de valor e sai da estrutura
+            case valor_2:
+                // Executa um bloco de código
+                break; // Finaliza o teste de valor e sai da estrutura
+            case valor_3:
+            case valor_4:
+                // Executa um bloco de código para qualquer um dos dois casos anteriores
+                break; // Finaliza o teste de valor e sai da estrutura
+            default:
+                // Executa um bloco de código para quando nenhum caso anterior corresponder ao valor
+                break; // Sai da estrutura
+        }
+  
+        /* Estrura abaixo retorna um valor com base no valor testado. Retorno deve ser do mesmo tipo*/
+        String retorno = switch(valor_testar) {
+            case valor_1 -> "Valor Retorno 1";
+            case valor_2 -> "Valor Retorno 2";
+            case valor_3 -> "Valor Retorno 3";
+            default -> "Valor Retorno padrão";
+        };
+    }
+  }
   ~~~
 
 > [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/120f70818852728443f984ccbf81a79395d17da3/MD8/Demo/src/Inicio.java#L11)
@@ -94,9 +103,13 @@ if (media >= 7F) { // Entra no bloco se verdade
 - Sintaxe:
 
   ~~~java
-  while (condicao_logica) {
-    bloco_de_codigo;
-    alteracao_para_permitir_que_condicao_logica_falhe_em_algum_momento_para_encerrar_laco;
+  class Exemplo {
+    public static void main(String[] args) {
+        while (condicao_logica) {
+            bloco_de_codigo;
+            alteracao_para_permitir_que_condicao_logica_falhe_em_algum_momento_para_encerrar_laco;
+        }
+    }
   }
   ~~~
 
@@ -110,10 +123,14 @@ if (media >= 7F) { // Entra no bloco se verdade
 - Sintaxe:
   
   ~~~java
-  do {
-    bloco_de_codigo;
-    alteracao_para_permitir_que_condicao_logica_falhe_em_algum_momento_para_encerrar_laco;
-  } while (condicao_logica)
+  class Exemplo {
+    public static void main(String[] args) {
+        do {
+            bloco_de_codigo;
+            alteracao_para_permitir_que_condicao_logica_falhe_em_algum_momento_para_encerrar_laco;
+        } while (condicao_logica);
+    }
+  }
   ~~~
 
 > [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/84ff032434db3b98d13461163b0dd771f28f93c0/MD8/Demo/src/Inicio.java#L200)
@@ -127,8 +144,12 @@ if (media >= 7F) { // Entra no bloco se verdade
 - Sintaxe:
 
   ~~~java
-  for (declaracao_e_inicializacao_contador; condicao_parada; atualizacao_contador) {
-    bloco_codigo;
+  class Exemplo {
+    public static void main(String[] args) {
+        for (declaracao_e_inicializacao_contador; condicao_parada; atualizacao_contador) {
+            bloco_codigo;
+        }
+    }
   }
   ~~~
 
@@ -140,15 +161,19 @@ if (media >= 7F) { // Entra no bloco se verdade
 - Sintaxe:
 
   ~~~java
-  for (declaracao_e_inicializacao_contador; condicao_parada; atualizacao_contador) {
-    codigo;
+  class Exemplo {
+    public static void main(String[] args) {
+        for (declaracao_e_inicializacao_contador; condicao_parada; atualizacao_contador) {
+            codigo;
   
-    if (condicao) {
-        codigo;
-        break; // força a saída antes da condicao_parada ser false
+            if (condicao) {
+                codigo;
+                break; // força a saída antes da condicao_parada ser false
+            }
+  
+            codigo;
+        }
     }
-  
-    codigo;
   }
   ~~~
 
@@ -160,15 +185,19 @@ if (media >= 7F) { // Entra no bloco se verdade
 - Sintaxe
 
   ~~~java
-  for (declaracao_e_inicializacao_contador; condicao_parada; atualizacao_contador) {
-    codigo;
+  class Exemplo {
+    public static void main(String[] args) {
+        for (declaracao_e_inicializacao_contador; condicao_parada; atualizacao_contador) {
+            codigo;
   
-    if (condicao) {
-        codigo;
-        continue; // Ignora código subsequente e avança para a próxima iteração
+            if (condicao) {
+                codigo;
+                continue; // Ignora código subsequente e avança para a próxima iteração
+            }
+  
+            codigo;
+        }
     }
-  
-    codigo;
   }
   ~~~
 
