@@ -148,7 +148,7 @@ public class Inicio {
     }
 
     public static String retornarDescricaoDiaSemana(int diaSemana) {
-        return switch(diaSemana) {
+        return switch (diaSemana) {
             case 1 -> "Domingo";
             case 2 -> "Segunda-feira";
             case 3 -> "Terça-feira";
@@ -212,7 +212,7 @@ public class Inicio {
 
         separador = "";
 
-        for(contador = 0; contador <= limite; contador++) {
+        for (contador = 0; contador <= limite; contador++) {
             System.out.print(separador + contador);
             separador = ", ";
         }
@@ -221,7 +221,7 @@ public class Inicio {
 
         separador = "";
 
-        for(contador = 0; contador <= limite; contador++) {
+        for (contador = 0; contador <= limite; contador++) {
             System.out.print(separador + contador);
 
             if (contador >= 30 && contador % 7 == 0) {
@@ -229,6 +229,18 @@ public class Inicio {
                 break;
             }
 
+            separador = ", ";
+        }
+
+        System.out.print("\n\tTeste continue (Divisores de 7 até " + limite + "): ");
+
+        separador = "";
+
+        for (contador = 0; contador <= limite; contador++) {
+            if (contador % 7 != 0)
+                continue;
+
+            System.out.print(separador + contador);
             separador = ", ";
         }
     }

@@ -153,3 +153,21 @@ if (media >= 7F) { // Entra no bloco se verdade
   ~~~
 
 > [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/989b47703c4af787f77bf68ea8760a999f6099a3/MD8/Demo/src/Inicio.java#L220)
+
+### Forçando avanço da iteração
+
+- Usar `continue` força o avanço para a próxima iteração do laço, não executando código após o continue
+- Sintaxe
+
+  ~~~java
+  for (declaracao_e_inicializacao_contador; condicao_parada; atualizacao_contador) {
+    codigo;
+  
+    if (condicao) {
+        codigo;
+        continue; // Ignora código subsequente e avança para a próxima iteração
+    }
+  
+    codigo;
+  }
+  ~~~
