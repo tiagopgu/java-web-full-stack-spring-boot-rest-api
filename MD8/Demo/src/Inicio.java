@@ -207,5 +207,14 @@ public class Inicio {
             contador++;
             separador = ", ";
         } while (contador <= limite);
+
+        System.out.print("\n\tTeste for: ");
+
+        separador = "";
+
+        for(contador = 0; contador <= limite; contador++) {
+            System.out.print(separador + contador);
+            separador = ", ";
+        }
     }
 }

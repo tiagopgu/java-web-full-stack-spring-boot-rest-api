@@ -117,3 +117,17 @@ if (media >= 7F) { // Entra no bloco se verdade
   ~~~
 
 > [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/84ff032434db3b98d13461163b0dd771f28f93c0/MD8/Demo/src/Inicio.java#L200)
+
+### Total de repetição conhecida
+
+- Estrutura onde a quantidade de repetição é conhecida
+- Repete enquanto condição verdadeira
+- Substitui as estruturas de repetições anteriores em muitas situações
+- Após cada execução, o contador é atualizado e a condição validada
+- Sintaxe:
+
+  ~~~java
+  for (declaracao_e_inicializacao_contador; condicao_parada; atualizacao_contador) {
+    bloco_codigo;
+  }
+  ~~~
