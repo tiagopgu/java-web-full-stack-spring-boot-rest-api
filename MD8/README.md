@@ -80,3 +80,36 @@ if (media >= 7F) { // Entra no bloco se verdade
   ~~~
 
 > [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/120f70818852728443f984ccbf81a79395d17da3/MD8/Demo/src/Inicio.java#L11)
+
+## Estrutura de Repetição
+
+- Executa repetidamente um bloco de código com base em uma condição lógica
+- Deve ter uma condição de parada para não entrar em loop infinito
+- Comumente chamado de laço de repetição
+
+### Teste no início
+
+- Testa a condição lógica no início do laço
+- Repete o bloco de código enquanto condição for verdadeira
+- Sintaxe:
+
+  ~~~java
+  while (condicao_logica) {
+    bloco_de_codigo;
+    alteracao_para_permitir_que_condicao_logica_falhe_em_algum_momento_para_encerrar_laco;
+  }
+  ~~~
+
+### Teste no final
+
+- Testa a condição lógica no final do laço
+- Repete o bloco de código enquanto a condição for verdadeira
+- Bloco de código é executado ao menos uma vez
+- Sintaxe:
+  
+  ~~~java
+  do {
+    bloco_de_codigo;
+    alteracao_para_permitir_que_condicao_logica_falhe_em_algum_momento_para_encerrar_laco;
+  } while (condicao_logica)
+  ~~~

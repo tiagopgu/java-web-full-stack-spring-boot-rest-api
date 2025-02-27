@@ -13,6 +13,12 @@ public class Inicio {
         System.out.println();
 
         testeOperadoresRelacionais();
+
+        System.out.println();
+
+        testeEstruturaRepeticao();
+
+        System.out.println();
     }
 
     public static void testeEstruturaDecisao() {
@@ -172,5 +178,34 @@ public class Inicio {
 
         System.out.println("\t" + (valor1 < valor2 ? "Valor 1 é menor que o valor 2" : "Valor 1 não é menor que o valor 2"));
         System.out.println("\t" + (valor1 <= valor2 ? "Valor 1 é menor ou igual ao valor 2" : "Valor 1 é maior que o valor 2"));
+    }
+
+    public static void testeEstruturaRepeticao() {
+
+        System.out.println("Teste de Estruturas de Repetição\n");
+
+        System.out.print("\tTeste While: ");
+
+        int contador = 0;
+        int limite = 50;
+        String separador = "";
+
+        while (contador <= limite) {
+            System.out.print(separador + contador);
+
+            contador++;
+            separador = ", ";
+        }
+
+        System.out.print("\n\tTeste do..while: ");
+
+        contador = 0;
+        separador = "";
+
+        do {
+            System.out.print(separador + contador);
+            contador++;
+            separador = ", ";
+        } while (contador <= limite);
     }
 }
