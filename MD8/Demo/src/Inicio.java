@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class Inicio {
     private static float valorArrendamento = .25F;
 
@@ -17,6 +19,10 @@ public class Inicio {
         System.out.println();
 
         testeEstruturaRepeticao();
+
+        System.out.println("\n");
+
+        testeEntradaESaidaDadosComDialog();
 
         System.out.println();
     }
@@ -243,5 +249,19 @@ public class Inicio {
             System.out.print(separador + contador);
             separador = ", ";
         }
+    }
+
+    public static void testeEntradaESaidaDadosComDialog() {
+        System.out.println("Teste de Entrada e Saída com Dialog\n");
+
+        int qtdFrutas = Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade de frutas para distribuir"));
+        int qtdPessoas = Integer.parseInt(JOptionPane.showInputDialog("Informa a quatidade de pessoas"));
+
+        int qtdPorPessoa = qtdFrutas / qtdPessoas;
+        int qtdFrutasSobra = qtdFrutas % qtdPessoas;
+
+        JOptionPane.showMessageDialog(null, "Total Frutas: " + qtdFrutas +
+                "\nTotal Pessoas: " + qtdPessoas +
+                "\n\nCada pessoa ficou com " + qtdPorPessoa + " frutas, sobrando " + qtdFrutasSobra + " frutas.");
     }
 }

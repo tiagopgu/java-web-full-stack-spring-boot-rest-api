@@ -71,3 +71,16 @@
 
 - Para compilar uma classe: `javac caminho_arquivo_classe`
 - Para executar o arquivo compilado: `java caminho_arquivo_compilado_sem_extensao`
+
+## Recursos do Java
+
+A seguir a lista dos principais recursos usados no Java para o desenvolvimento
+
+- Saída em console:
+  - Sem pular linha: `System.out.print("Mensagem de saída");`
+  - Pular linha após impressão: `System.out.println("Mensagem de saída");`
+- Interface gráfica
+  - Entrada de dados: `String entrada = JOptionPanel.showInputDialog("Descrição do campo");`
+  - Saída de dados: `JOptionPanel.showMessageDialog(null, "Mensagem de saída");`
+  
+  > Obs.: Necessário realizar o seguinte import: `import javax.swing.*;`
