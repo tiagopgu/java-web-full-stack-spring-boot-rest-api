@@ -2,6 +2,12 @@
 
 ###### _Anotações referentes ao módulo 8 do curso_
 
+## Operadores Relacionais
+
+- Compara dois valores, retornando `true` ou `false` conforme o resultado da comparação
+- Operadores: `==` (igual), `!=` (diferente), `>` (maior), `<` (menor), `>=` (maior ou igual), `<=` (menor ou igual)
+- Exemplo: `String resultado = idade >= 18 && idade < 30 ? "Idade permitida" : "Idade não permitida";`
+
 ## Estrutura de Decisão
 
 - Executa um bloco de código com base em um valor lógico

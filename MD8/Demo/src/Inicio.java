@@ -9,6 +9,10 @@ public class Inicio {
         System.out.println();
 
         testeEstruturaSelecao();
+
+        System.out.println();
+
+        testeOperadoresRelacionais();
     }
 
     public static void testeEstruturaDecisao() {
@@ -148,5 +152,25 @@ public class Inicio {
             case 7 -> "Sábado";
             default -> "Dia Inválido";
         };
+    }
+
+    public static void testeOperadoresRelacionais() {
+        int valor1 = 50;
+        int valor2 = 35;
+
+        System.out.println("Teste de Operadores Relacionais\n");
+
+        System.out.println("Valores de teste:");
+        System.out.println("\tValor 1 = " + valor1);
+        System.out.println("\tValor 2 = " + valor2 + "\n");
+
+        System.out.println("\t" + (valor1 == valor2 ? "Valor 1 é igual ao valor 2" : "Valor 1 é diferente do valor 2"));
+        System.out.println("\t" + (valor1 != valor2 ? "Valor 1 é diferente do valor 2" : "Valor 1 é igual ao valor 2") + "\n");
+
+        System.out.println("\t" + (valor1 > valor2 ? "Valor 1 é maior que o valor 2" : "Valor 1 não é maior que o valor 2"));
+        System.out.println("\t" + (valor1 >= valor2 ? "Valor 1 é maior ou igual ao valor 2" : "Valor 1 é menor que o valor 2") + "\n");
+
+        System.out.println("\t" + (valor1 < valor2 ? "Valor 1 é menor que o valor 2" : "Valor 1 não é menor que o valor 2"));
+        System.out.println("\t" + (valor1 <= valor2 ? "Valor 1 é menor ou igual ao valor 2" : "Valor 1 é maior que o valor 2"));
     }
 }
