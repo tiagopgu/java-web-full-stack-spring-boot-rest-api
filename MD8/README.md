@@ -171,3 +171,5 @@ if (media >= 7F) { // Entra no bloco se verdade
     codigo;
   }
   ~~~
+
+> [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/31c39cb5ccdb71fb27d4924b386b41f9cb4cc686/MD8/Demo/src/Inicio.java#L235)
