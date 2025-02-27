@@ -84,3 +84,5 @@ A seguir a lista dos principais recursos usados no Java para o desenvolvimento
   - Saída de dados: `JOptionPanel.showMessageDialog(null, "Mensagem de saída");`
   
   > Obs.: Necessário realizar o seguinte import: `import javax.swing.*;`
+  > 
+  > [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/75249a2535c495c4a75de1c150c95d3faef81759/MD8/Demo/src/Inicio.java#L254)
