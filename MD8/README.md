@@ -8,6 +8,8 @@
 - Operadores: `==` (igual), `!=` (diferente), `>` (maior), `<` (menor), `>=` (maior ou igual), `<=` (menor ou igual)
 - Exemplo: `String resultado = idade >= 18 && idade < 30 ? "Idade permitida" : "Idade não permitida";`
 
+> [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/f31591a1653bd4cec5671e80ee598f4cd7099e2e/MD8/Demo/src/Inicio.java#L15)
+
 ## Estrutura de Decisão
 
 - Executa um bloco de código com base em um valor lógico
