@@ -80,7 +80,7 @@ São os tipos mais básicos e usuais de uma linguagem de programação
   - Use `Float.parseFloat(string)` para converter um número em formato de texto para número. Exemplo: `float altura = Float.parseFloat("1.79");`
 - **double**: aceita valores reais de precisão dupla (8 bytes)
   - Por padrão, quando um valor real é atribuído, o compilador interpreta como _double_. Exemplo: `double valorTotal = 165.36;`
-  - Use `Dobule.parseDouble(string)` para converter um número em formato de texto para número. Exemplo: `double preco = Double.parseDouble("1597.39");`
+  - Use `Double.parseDouble(string)` para converter um número em formato de texto para número. Exemplo: `double preco = Double.parseDouble("1597.39");`
 
 > Valor padrão de inicialização: 0
 >
