@@ -71,3 +71,21 @@
 
 - Para compilar uma classe: `javac caminho_arquivo_classe`
 - Para executar o arquivo compilado: `java caminho_arquivo_compilado_sem_extensao`
+
+## Recursos do Java
+
+A seguir a lista dos principais recursos usados no Java para o desenvolvimento
+
+- Saída em console:
+  - Sem pular linha: `System.out.print("Mensagem de saída");`
+  - Pular linha após impressão: `System.out.println("Mensagem de saída");`
+- Interface gráfica
+  - Entrada de dados: `String entrada = JOptionPanel.showInputDialog("Descrição do campo");`
+  - Saída de dados: `JOptionPanel.showMessageDialog(null, "Mensagem de saída");`
+  - Tela de confirmação: `int resultado = JOptionPanel.showConfirmDialog(null, "Mensagem", ["Título da janela"], [JOptionPanel.YES_NO_OPTION]);`
+    - Retornos: _Yes_ retorna `0` e _No_ retorna `1`
+    - É opcional alterar o título da janela e as opções (que por padrão são Yes/No/Cancel) passando mais dois parâmetros
+  
+  > Obs.: Necessário realizar o seguinte import: `import javax.swing.*;`
+  > 
+  > [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/75249a2535c495c4a75de1c150c95d3faef81759/MD8/Demo/src/Inicio.java#L254)

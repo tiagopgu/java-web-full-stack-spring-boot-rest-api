@@ -12,3 +12,5 @@ Acesse as anotações de cada módulo clicando nos links abaixo.
 2. [Ambiente Java](MD4/README.md)
 3. [Versionamento de código](MD6/README.md)
 4. [Variáveis e Tipos de Dados](MD7/README.md)
+5. [Operações Lógicas, Condicionais e Relacionais](MD8/README.md)
+   1. [Projeto "Média Escolar"](MD8/Projeto/MediaEscolar)

@@ -52,10 +52,14 @@ São os tipos mais básicos e usuais de uma linguagem de programação
 ### Tipos numéricos integrais
 
 - **byte**: aceita valores na faixa de -128 a 127 (1 byte)
+  - Use `Byte.parseByte(string)` para converter um número em formato de texto para número. Exemplo: `byte idade = Byte.parseByte("18");` 
 - **short**: aceita valores na faixa de -32768 a 32767 (2 bytes)
+  - Use `Short.parseShort(string)` para converter um número em formato de texto para número. Exemplo: `short numero = Short.parseShort("146");`
 - **int**: aceita valores de -2<sup>31</sup> a 2<sup>31</sup> - 1 (4 bytes)
+  - Use `Integer.parseInt(string)` para converter um número em formato de texto para número. Exemplo: `int quantidade = Integer.parseInt("3590");`
 - **long**: aceita valores de -2<sup>63</sup> a 2<sup>63</sup>  - 1 (8 bytes)
   - Valores atribuídos devem terminar com o prefixo `L`. Exemplo: `long numero = 56515990L;`
+  - Use `Long.parseLong(string)` para converter um número em formato de texto para número. Exemplo: `long valor = Long.parseLong("15984636");`
 
 > Valor padrão de inicialização: 0
 > 
@@ -64,13 +68,19 @@ São os tipos mais básicos e usuais de uma linguagem de programação
 > Em operações matemáticas, o resultado será sempre o do maior tipo envolvido. Ou seja: na soma de um int com um long, o resultado será long
 > 
 > Em operações matemáticas envolvendo divisão, se todos os tipos forem integrais, o resultado será um integral, mesmo que, na prática, tenha ponto flutuante. Ou seja: a divisão de um int por outro int sempre resulta em int, mesmo que o resultado possua casas decimais
+> 
+> Use % para retornar o resto de um divisão. Exemplo: 9 % 2 resulta em 1
+> 
+> Na conversão de string para número, se a string não for um número é lançanda excessão de formato inválido
 
 ### Tipos numéricos de ponto flutuante
 
 - **float**: aceita valores reais de precisão simples (4 bytes)
   - Valores atribuído deve terminar com o prefixo `F`. Exemplo: `float temperatura = 32.54F;`
+  - Use `Float.parseFloat(string)` para converter um número em formato de texto para número. Exemplo: `float altura = Float.parseFloat("1.79");`
 - **double**: aceita valores reais de precisão dupla (8 bytes)
   - Por padrão, quando um valor real é atribuído, o compilador interpreta como _double_. Exemplo: `double valorTotal = 165.36;`
+  - Use `Double.parseDouble(string)` para converter um número em formato de texto para número. Exemplo: `double preco = Double.parseDouble("1597.39");`
 
 > Valor padrão de inicialização: 0
 >
@@ -79,6 +89,8 @@ São os tipos mais básicos e usuais de uma linguagem de programação
 > Em operações matemáticas, o resultado será sempre o do maior tipo envolvido. Ou seja: na soma de um float com um double, o resultado será double
 > 
 > Em operações matemáticas envolvendo tipos integrais, o resultado será sempre com ponto flutuante. Ou seja: a soma de um int com um double, sempre resultará em um double
+>
+> Na conversão de string para número, se a string não for um número é lançanda excessão de formato inválido
 
 ### Tipo para texto
 
