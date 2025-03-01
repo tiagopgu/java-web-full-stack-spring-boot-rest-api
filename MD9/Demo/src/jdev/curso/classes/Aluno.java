@@ -1,6 +1,10 @@
 package jdev.curso.classes;
 
 public class Aluno {
+    private double MINIMO_APROVACAO = 7.0;
+    private double MINIMO_RECUPERACAO = 5.0;
+    private double VALOR_ARREDONDAMENTO = 0.25;
+
     String nome;
     String documento;
     String nomeMae;
@@ -105,12 +109,44 @@ public class Aluno {
         return (getNota1() + getNota2() + getNota3() + getNota4()) / 4;
     }
 
+    // Nos métodos booleanos a seguir, o sistema tenta arredondar a nota
+    // Isso dá uma chance de livrar o aluno de determinada situação
+    public boolean getAprovado() {
+        double media = getMedia();
+        double mediaAuxiliar = media + VALOR_ARREDONDAMENTO;
+
+        return media >= MINIMO_APROVACAO || mediaAuxiliar >= MINIMO_APROVACAO;
+    }
+
+    public boolean getRecuperacao() {
+        double media = getMedia();
+        double mediaAuxiliar = media + VALOR_ARREDONDAMENTO;
+
+        return !getAprovado() && (media >= MINIMO_RECUPERACAO || mediaAuxiliar >= MINIMO_RECUPERACAO);
+    }
+
+    public boolean getReprovado() {
+        return !(getAprovado() || getRecuperacao());
+    }
+
+    public String getSituacao() {
+        if (getAprovado())
+            return "Aprovado";
+
+        if (getRecuperacao())
+            return "Em Recuperação";
+
+        return "Reprovado";
+    }
+
     public String compilarDados() {
         return "Nome: " + (getNome() == null ? "" : getNome()) +
                 "\nDocumento: " + (getDocumento() == null ? "" : getDocumento()) +
                 "\nNome do pai: " + (getNomePai() == null ? "" : getNomePai()) +
                 "\nNome da mãe: " + (getNomeMae() == null ? "" : getNomeMae()) +
                 "\nCódigo da Turma: " + getCodigoTurma() +
-                "\nMédia: " + getMedia();
+                "\nMédia: " + getMedia() +
+                "\nSituação: " + getSituacao() +
+                (getAprovado() ? "\n\tParabéns pela sua aprovação" : getReprovado() ? "\n\tInfelizmente não foi dessa vez, mas não desista" : "");
     }
 }

@@ -59,6 +59,7 @@ public class NomeClasse {
   
     // Método acessado externamente
     // A boa prática diz que a classe deve encapsular a lógica para trabalhar com seus atributos
+    // Métodos devem ter uma única responsabilidade. Divida a lógica em mais métodos para mais clareza
     public String metodo1() {
         return "Faz alguma coisa";
     }

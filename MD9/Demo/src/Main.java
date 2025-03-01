@@ -41,8 +41,8 @@ public class Main {
 
         Aluno aluno4 = new Aluno("Maria Tereza Laura Campos", "44664360029", 103);
         aluno4.setNota1(3.0);
-        aluno4.setNota2(9.0);
-        aluno4.setNota3(7.0);
+        aluno4.setNota2(6.0);
+        aluno4.setNota3(5.0);
         aluno4.setNota4(3.0);
 
         System.out.println("#4\n" + aluno4.compilarDados());
