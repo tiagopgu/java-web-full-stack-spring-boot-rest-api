@@ -14,3 +14,4 @@ Acesse as anotações de cada módulo clicando nos links abaixo.
 4. [Variáveis e Tipos de Dados](MD7/README.md)
 5. [Operações Lógicas, Condicionais e Relacionais](MD8/README.md)
    1. [Projeto "Média Escolar"](MD8/Projeto/MediaEscolar)
+6. [Programação Orientada a Objetos](MD9/README.md)
