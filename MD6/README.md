@@ -29,3 +29,5 @@
 > Normalmente as IDE's de desenvolvimento possuem integração com o Git, permitindo graficamente usar os comandos acima.
 > 
 > É possível também utilizar os comandos do Git via CLI.
+
+> <a href="https://semver.org/lang/pt-BR/" target="_blank">Clique aqui</a> para entender mais sobre versionamento semântico, muito usado para criar versões de sistema.

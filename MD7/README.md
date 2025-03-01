@@ -129,3 +129,5 @@ Alguns tipos não são primitivos da linguagem, porém, devido ao uso, é quase 
   ~~~
 
 > Valor padrão de inicialização: null
+
+> <a href="https://renan04-marques.medium.com/padr%C3%B5es-de-nomenclaturas-no-java-a3c7b0c56538" target="_blank">Clique aqui</a> para ler sobre algumas convenções importantes do Java
