@@ -7,6 +7,11 @@ public class Aluno {
     String nomePai;
     int codigoTurma;
 
+    double nota1;
+    double nota2;
+    double nota3;
+    double nota4;
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -47,9 +52,39 @@ public class Aluno {
         return codigoTurma;
     }
 
-    public Aluno() {
-
+    public void setNota1(double nota1) {
+        this.nota1 = nota1;
     }
+
+    public double getNota1() {
+        return nota1;
+    }
+
+    public void setNota2(double nota2) {
+        this.nota2 = nota2;
+    }
+
+    public double getNota2() {
+        return nota2;
+    }
+
+    public void setNota3(double nota3) {
+        this.nota3 = nota3;
+    }
+
+    public double getNota3() {
+        return nota3;
+    }
+
+    public void setNota4(double nota4) {
+        this.nota4 = nota4;
+    }
+
+    public double getNota4() {
+        return nota4;
+    }
+
+    public Aluno() { }
 
     public Aluno(String nome) {
         setNome(nome);
@@ -66,11 +101,16 @@ public class Aluno {
         setCodigoTurma(codigoTurma);
     }
 
+    public double getMedia() {
+        return (getNota1() + getNota2() + getNota3() + getNota4()) / 4;
+    }
+
     public String compilarDados() {
         return "Nome: " + (getNome() == null ? "" : getNome()) +
                 "\nDocumento: " + (getDocumento() == null ? "" : getDocumento()) +
                 "\nNome do pai: " + (getNomePai() == null ? "" : getNomePai()) +
                 "\nNome da mãe: " + (getNomeMae() == null ? "" : getNomeMae()) +
-                "\nCódigo da Turma: " + getCodigoTurma();
+                "\nCódigo da Turma: " + getCodigoTurma() +
+                "\nMédia: " + getMedia();
     }
 }
