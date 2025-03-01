@@ -73,6 +73,8 @@ public class NomeClasse {
 > Para uma melhor organização das classes, use os pacotes do Java. Normalmente os pacotes são subdiretórios dentro da raiz do projeto e o uso da seguinte sintaxe no início do arquivo que define a classe: `package subdiretorio.subdiretorio2;`
 > 
 > Em outro arquivo onde for usada a classe, teria que ser colocado, no início do arquivo, o import desse pacote: `import subdiretorio.subdiretorio2.NomeClasse;`
+> 
+> [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/57401b56169fcca3c05264c3ac8b7a993c56f020/MD9/Demo/src/jdev/curso/classes/Aluno.java#L1)
 
 ## Objeto
 
@@ -97,3 +99,5 @@ class Main {
     }
 }
 ~~~
+
+> [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/57401b56169fcca3c05264c3ac8b7a993c56f020/MD9/Demo/src/Main.java#L7)
