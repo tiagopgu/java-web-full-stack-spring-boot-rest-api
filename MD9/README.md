@@ -83,14 +83,25 @@ public class NomeClasse {
 - Criado a partir de um modelo de _classe_ (processo chamado de _instanciação_)
 - Tem seus dados carregados e irá interagir (por meio de mensagens) com outros objetos criados durante a execução do sistema
 - A instanciação cria o objeto na memória
-- A instanciação ocorre quando é usado o comando `new`, com a seguinte sintaxe
+- A instanciação ocorre quando é usado o comando `new`: `NomeClasse obj = new NomeClasse();`
+  - A tentativa de chamar um método ou propriedade da classe a partir de uma variável do tipo da classe, porém não instanciado o objeto, gera a execeção `NullPointerException`.
 
 ~~~java
 class Main {
     public static void main(String[] args) {
-        // Instanciando uma classe para criar objetos
-        // As variáveis fazem referência oa endereço de memória onde o objeto foi criado
-        NomeClasse obj1 = new NomeClasse(); // Chamando o construtor sem parâmetro
+        // Variável do tipo a ser instanciado
+        // A variável faz referência ao endereço de memória onde o objeto foi criado
+        // Neste caso não aponta para nenhum objeto ainda
+        NomeClasse obj1 = null;
+
+        // Essa chamada irá gerar o erro 'NullPointerException'
+        //obj1.atributo2 = "Valor";
+        
+        // Instanciando o objeto
+        // Neste caso é chamado o construtor sem parâmetro
+        // Pode ser usado outro construtor, se definido na classe
+        obj1 = new NomeClasse();
+      
         obj1.atributo2 = "Valor"; // Configurando valor de atributo público
         obj1.setAtributo1("Valor"); // Configurando valor de atributo privado através de método acessor
 
