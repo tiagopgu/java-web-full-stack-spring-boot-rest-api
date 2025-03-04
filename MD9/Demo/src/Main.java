@@ -15,7 +15,7 @@ public class Main {
         aluno1.setNota3(6.0);
         aluno1.setNota4(10.0);
 
-        System.out.println("#1\n" + aluno1.compilarDados() + "\n");
+        System.out.println("#1\n" + aluno1 + "\n");
 
         Aluno aluno2 = new Aluno("Maitê Nina Adriana Farias");
         aluno2.setDocumento("26686625833");
@@ -27,7 +27,7 @@ public class Main {
         aluno2.setNota3(4.0);
         aluno2.setNota2(9.0);
 
-        System.out.println("#2\n" + aluno2.compilarDados() + "\n");
+        System.out.println("#2\n" + aluno2 + "\n");
 
         Aluno aluno3 = new Aluno("Maria Camila Rezende", "46801815830");
         aluno3.setNomeMae("Vitória Luiza");
@@ -37,7 +37,7 @@ public class Main {
         aluno3.setNota3(8.0);
         aluno3.setNota4(7.0);
 
-        System.out.println("#3\n" + aluno3.compilarDados() + "\n");
+        System.out.println("#3\n" + aluno3 + "\n");
 
         Aluno aluno4 = new Aluno("Maria Tereza Laura Campos", "44664360029", 103);
         aluno4.setNota1(3.0);
@@ -45,6 +45,6 @@ public class Main {
         aluno4.setNota3(5.0);
         aluno4.setNota4(3.0);
 
-        System.out.println("#4\n" + aluno4.compilarDados());
+        System.out.println("#4\n" + aluno4);
     }
 }

@@ -139,7 +139,7 @@ public class Aluno {
         return "Reprovado";
     }
 
-    public String compilarDados() {
+    public String toString() {
         return "Nome: " + (getNome() == null ? "" : getNome()) +
                 "\nDocumento: " + (getDocumento() == null ? "" : getDocumento()) +
                 "\nNome do pai: " + (getNomePai() == null ? "" : getNomePai()) +
