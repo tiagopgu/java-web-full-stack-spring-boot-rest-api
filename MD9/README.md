@@ -309,4 +309,8 @@ class Main {
         return result;
     }
   }
-  ~~~ 
+  ~~~
+
+  > [Clique aqui](https://www.treinaweb.com.br/blog/para-que-servem-os-metodos-tostring-equals-e-gethashcode?utm_source=&utm_medium=&utm_campaign=&utm_content=&gad_source=1&gclid=CjwKCAiAiaC-BhBEEiwAjY99qEWt5g9Fawso5zrBhpaMy6pGowuAcBSH5uyeWadgYPW0ZGR41CGOgxoCvpwQAvD_BwE) para complementar informações sobre os método `toString`, `equals` e `hashCode`
+  > 
+  > [Clique aqui](https://medium.com/@AlexanderObregon/javas-objects-equals-method-explained-3a84c963edfa) para complementar informações sobre o método Objects.equals 
