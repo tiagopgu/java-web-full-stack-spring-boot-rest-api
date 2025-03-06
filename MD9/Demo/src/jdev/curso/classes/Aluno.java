@@ -1,6 +1,5 @@
 package jdev.curso.classes;
 
-import java.lang.annotation.Documented;
 import java.util.Objects;
 
 public class Aluno {
@@ -91,7 +90,8 @@ public class Aluno {
         return nota4;
     }
 
-    public Aluno() { }
+    public Aluno() {
+    }
 
     public Aluno(String nome) {
         setNome(nome);
@@ -167,7 +167,7 @@ public class Aluno {
         int prime = 17;
         int result = 1;
 
-        result *= prime + (this.documento == null ? 0 : this.documento.hashCode());
+        result *= prime + Objects.hashCode(getDocumento());
 
         return result;
     }

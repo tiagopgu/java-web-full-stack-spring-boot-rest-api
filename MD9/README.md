@@ -235,6 +235,8 @@ class Main {
 - Comportamento padrão de comparação de igualdade pode ser alterado sobrescrevendo o método `equals`
 
   ~~~java
+  import java.util.Objects;
+  
   public class NomeClasse {
     int atributo;
     String atributo2;
@@ -250,7 +252,7 @@ class Main {
         if (obj == null || this.getClass() != obj.getClass()) return false;
   
         // Testando atributos que irão diferenciar um objeto de outro (podem não ser todos)
-        // Objects.equals provê mais segurança no tratamento de null, evitanto o erro NullPointerException
+        // Objects.equals provê mais segurança no tratamento de null, evitanto o erro NullPointerException (import necessário)
         NomeClasse other = (NomeClasse) obj;
         return Objects.equals(atributo2, other.atributo2);
     }
@@ -299,7 +301,8 @@ class Main {
         int numeroPrimo = 11;
         int result = 1;
         
-        result *= numeroPrimo + (atributo2 == null ? 0 : atributo2.hashCode());
+        // Objects.hashCode trata null, evitando o erro NullPointerException
+        result *= numeroPrimo + Objects.hashCode(atributo2);
   
         // Replicar cálculo anterior para cada atributo usado em equals para validação
   
