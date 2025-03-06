@@ -1,5 +1,8 @@
 package jdev.curso.classes;
 
+import java.lang.annotation.Documented;
+import java.util.Objects;
+
 public class Aluno {
     private double MINIMO_APROVACAO = 7.0;
     private double MINIMO_RECUPERACAO = 5.0;
@@ -148,5 +151,24 @@ public class Aluno {
                 "\nMédia: " + getMedia() +
                 "\nSituação: " + getSituacao() +
                 (getAprovado() ? "\n\tParabéns pela sua aprovação" : getReprovado() ? "\n\tInfelizmente não foi dessa vez, mas não desista" : "");
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Aluno other = (Aluno) obj;
+
+        return Objects.equals(documento, other.getDocumento());
+    }
+
+    public int hashCode() {
+        int prime = 17;
+        int result = 1;
+
+        result *= prime + (this.documento == null ? 0 : this.documento.hashCode());
+
+        return result;
     }
 }

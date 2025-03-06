@@ -1,4 +1,4 @@
-import jdev.curso.classes.Aluno;
+import jdev.curso.classes.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -45,6 +45,62 @@ public class Main {
         aluno4.setNota3(5.0);
         aluno4.setNota4(3.0);
 
-        System.out.println("#4\n" + aluno4);
+        System.out.println("#4\n" + aluno4 + "\n");
+
+        testeIgualdade();
+    }
+
+    private static void testeIgualdade() {
+
+        System.out.println("================================================================");
+
+        // Classe abaixo não implementa o equals e hashCode
+        Aluno2 aluno1 = new Aluno2("Maria Tereza Laura Campos", "44664360029");
+        Aluno2 aluno2 = new Aluno2("Maria Tereza Laura Campos" , "44664360029");
+        Aluno2 aluno3 = new Aluno2("Brenda Bruna Vera da Luz", "15579998309");
+        Aluno2 aluno4 = aluno2;
+
+        System.out.println("\n# Comparação de Igualdade (equals e hashCode não sobrescrito)\n");
+
+        escreverDadosAluno(aluno1.getNome(), aluno1.getDocumento(), aluno1.hashCode(), 1);
+        escreverDadosAluno(aluno2.getNome(), aluno2.getDocumento(), aluno2.hashCode(), 2);
+
+        System.out.println("\t> Aluno 1 = Aluno 2 (Referências diferentes): " + aluno1.equals(aluno2) + "\n");
+
+        escreverDadosAluno(aluno3.getNome(), aluno3.getDocumento(), aluno3.hashCode(), 3);
+
+        System.out.println("\t> Aluno 1 = Aluno 3 (Referências diferentes): " + aluno1.equals(aluno3) + "\n");
+
+        escreverDadosAluno(aluno4.getNome(), aluno4.getDocumento(), aluno4.hashCode(), 4);
+
+        System.out.println("\t> Aluno 4 = Aluno 2 (Referências iguais - Copiado do aluno 2): " + aluno4.equals(aluno2));
+
+        // Classe abaixo implementa o equals e hashCode
+        Aluno aluno5 = new Aluno("Maria Tereza Laura Campos", "44664360029", 1);
+        Aluno aluno6 = new Aluno("Tânia Giovana Santos" , "44664360029", 2);
+        Aluno aluno7 = new Aluno("Brenda Bruna Vera da Luz", "15579998309", 1);
+        Aluno aluno8 = aluno5;
+
+        System.out.println("\n# Comparação de Igualdade (equals e hashCode sobrescrito - Diferenciado pelo documento)\n");
+
+        escreverDadosAluno(aluno5.getNome(), aluno5.getDocumento(), aluno5.hashCode(), 5);
+        escreverDadosAluno(aluno6.getNome(), aluno6.getDocumento(), aluno6.hashCode(), 6);
+
+        System.out.println("\t> Aluno 5 = Aluno 6 (Referências diferentes): " + aluno5.equals(aluno6) + "\n");
+
+        escreverDadosAluno(aluno7.getNome(), aluno7.getDocumento(), aluno7.hashCode(), 7);
+
+        System.out.println("\t> Aluno 5 = Aluno 7 (Referências diferentes): " + aluno5.equals(aluno7) + "\n");
+
+        escreverDadosAluno(aluno8.getNome(), aluno8.getDocumento(), aluno8.hashCode(), 8);
+
+        System.out.println("\t> Teste de igualdade (Referências iguais - Copiado do aluno 5): " + aluno8.equals(aluno5));
+    }
+
+    public static void escreverDadosAluno(String nome, String documento, int hashCode, int idAluno) {
+        System.out.println("\tAluno " + idAluno +
+                "\n\t\tNome: " + nome +
+                "\n\t\tDocumento: " + documento +
+                "\n\t\tHasCode: " + hashCode + "\n");
     }
 }

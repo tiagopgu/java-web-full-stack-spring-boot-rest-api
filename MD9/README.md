@@ -151,6 +151,10 @@
 - Criado a partir de um modelo de _classe_ (processo chamado de _instanciação_)
 - Tem seus dados carregados e irá interagir (por meio de mensagens) com outros objetos criados durante a execução do sistema
 - A instanciação cria o objeto na memória
+  - O objeto é criado na memóra _heap_
+  - A variável será criada na memória _stack_ e guardará uma referência para a posição de memória onde o objeto foi criado
+  - A variável é do tipo referência, por guardar um ponteiro para o objeto
+  - A cópia de uma variável para outra irá copiar a referência para o mesmo objeto, e não o objeto em si
 - A instanciação ocorre quando é usado o comando `new`: `NomeClasse obj = new NomeClasse();`
   - A tentativa de chamar um método ou propriedade da classe a partir de uma variável do tipo da classe, porém não instanciado o objeto, gera a execeção `NullPointerException`.
 - Exemplo
@@ -173,13 +177,18 @@ class Main {
         // Neste caso é chamado o construtor sem parâmetro
         // Pode ser usado outro construtor, se definido na classe
         obj1 = new NomeClasse();
-      
-        obj1.atributo2 = "Valor"; // Configurando valor de atributo público
-        obj1.setAtributo1("Valor"); // Configurando valor de atributo privado através de método acessor
 
-        System.out.println(obj1.getAtributo1()); // Lendo valor de atributo privado através de método acessor
+        // Configurando valor de atributo público
+        obj1.atributo2 = "Valor";
 
-        NomeClasse obj2 = new NomeClasse(1324, "Valor 2"); // Chamado o construtor com 2 parâmetros
+        // Configurando valor de atributo privado através de método acessor
+        obj1.setAtributo1("Valor");
+
+        // Lendo valor de atributo privado através de método acessor
+        System.out.println(obj1.getAtributo1());
+
+        // Chamando o construtor com 2 parâmetros
+        NomeClasse obj2 = new NomeClasse(1324, "Valor 2");
         obj2.setAtributo1("Valor");
 
         // Chamado um método do objeto
@@ -195,3 +204,106 @@ class Main {
 ~~~
 
 > [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/57401b56169fcca3c05264c3ac8b7a993c56f020/MD9/Demo/src/Main.java#L7)
+
+### Comparação de igualdade
+
+- Por padrão, variáveis do tipo referência, quando comparadas entre si, comparam a referência de memória do objeto e não os dados do objeto em si
+
+  ~~~java
+  class Main {
+    public static void main(String[] args) {
+        // obj1 carrega um ponteiro que referencia o objeto criado na memória heap
+        NomeClasse obj1 = new NomeClasse();
+        obj1.setAtributo(15);
+        obj1.setAtributo2("Valor 1");
+  
+        NomeClasse obj2 = new NomeClasse();
+        obj2.setAtributo(15);
+        obj1.setAtributo2("Valor 1");
+  
+        // Isso retorna false, já que as variáveis possuem referências de memória diferentes
+        System.out.println(obj1.equals(obj2));
+  
+        NomeClasse obj3 = obj2;
+  
+        // Isso retorna true, já que ambas as variáveis possuem a mesma referência de memória
+        System.out.println(obj3.equals(obj2));
+    }
+  }
+  ~~~
+
+- Comportamento padrão de comparação de igualdade pode ser alterado sobrescrevendo o método `equals`
+
+  ~~~java
+  public class NomeClasse {
+    int atributo;
+    String atributo2;
+  
+    // Demais membros da classe
+  
+    // Sobrescrevendo o método equals para correta comparação de igualdade
+    public boolean equals(Object obj) {
+        // Referências iguais
+        if (this == obj) return true;
+  
+        // Não existe o objeto a ser testado, ou são de tipos diferentes
+        if (obj == null || this.getClass() != obj.getClass()) return false;
+  
+        // Testando atributos que irão diferenciar um objeto de outro (podem não ser todos)
+        // Objects.equals provê mais segurança no tratamento de null, evitanto o erro NullPointerException
+        NomeClasse other = (NomeClasse) obj;
+        return Objects.equals(atributo2, other.atributo2);
+    }
+  }
+  
+  public class Main() {
+    public static void main(String[] args) {
+        NomeClasse obj1 = new NomeClasse();
+        obj1.setAtributo(15);
+        obj1.setAtributo2("Valor 1");
+  
+        NomeClasse obj2 = new NomeClasse();
+        obj2.setAtributo(21);
+        obj1.setAtributo2("Valor 1");
+  
+        // Isso retorna true, já que atributo2 possuem os mesmos valores
+        System.out.println(obj1.equals(obj2));
+  
+        NomeClasse obj3 = obj2;
+  
+        // Isso retorna true, já que ambas as variáveis possuem a mesma referência de memória
+        System.out.println(obj3.equals(obj2));
+    }
+  }
+  ~~~
+  
+  > `==` compara as referências de memória de duas variáveis
+
+- Caso o método `equals` seja sobrescrito, deve ser sobrescrito também o método `hashCode`, que é usado internamento pelo compilador para busca de objetos em listas
+
+  ~~~java
+  public class NomeClasse {
+    int atributo;
+    String atributo2;
+  
+    // Demais membros da classe
+  
+    // Sobrescrita do método equals
+  
+    // Sobrescrevendo o método hashCode
+    // Este método retorna um inteiro, que identifica o objeto
+    // Se equals retornar true em uma comparação, os dois objetos devem retornar o mesmo hash
+    // Implementação abaixo é uma sugestão para tentar evitar problemas de colisão (hash igual a de outro objeto)
+    public int hashCode() {
+        // Pode ser qualquer número primo, que deve ser diferente para cada classe da aplicação
+        int numeroPrimo = 11;
+        int result = 1;
+        
+        result *= numeroPrimo + (atributo2 == null ? 0 : atributo2.hashCode());
+  
+        // Replicar cálculo anterior para cada atributo usado em equals para validação
+  
+        return result;
+    }
+  }
+  ~~~ 
