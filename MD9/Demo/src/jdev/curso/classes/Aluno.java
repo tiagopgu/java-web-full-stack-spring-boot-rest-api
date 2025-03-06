@@ -3,20 +3,13 @@ package jdev.curso.classes;
 import java.util.Objects;
 
 public class Aluno {
-    private double MINIMO_APROVACAO = 7.0;
-    private double MINIMO_RECUPERACAO = 5.0;
-    private double VALOR_ARREDONDAMENTO = 0.25;
 
     String nome;
     String documento;
     String nomeMae;
     String nomePai;
     int codigoTurma;
-
-    double nota1;
-    double nota2;
-    double nota3;
-    double nota4;
+    Disciplina disciplina;
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -58,36 +51,12 @@ public class Aluno {
         return codigoTurma;
     }
 
-    public void setNota1(double nota1) {
-        this.nota1 = nota1;
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
     }
 
-    public double getNota1() {
-        return nota1;
-    }
-
-    public void setNota2(double nota2) {
-        this.nota2 = nota2;
-    }
-
-    public double getNota2() {
-        return nota2;
-    }
-
-    public void setNota3(double nota3) {
-        this.nota3 = nota3;
-    }
-
-    public double getNota3() {
-        return nota3;
-    }
-
-    public void setNota4(double nota4) {
-        this.nota4 = nota4;
-    }
-
-    public double getNota4() {
-        return nota4;
+    public Disciplina getDisciplina() {
+        return disciplina;
     }
 
     public Aluno() {
@@ -108,49 +77,29 @@ public class Aluno {
         setCodigoTurma(codigoTurma);
     }
 
-    public double getMedia() {
-        return (getNota1() + getNota2() + getNota3() + getNota4()) / 4;
-    }
-
-    // Nos métodos booleanos a seguir, o sistema tenta arredondar a nota
-    // Isso dá uma chance de livrar o aluno de determinada situação
-    public boolean getAprovado() {
-        double media = getMedia();
-        double mediaAuxiliar = media + VALOR_ARREDONDAMENTO;
-
-        return media >= MINIMO_APROVACAO || mediaAuxiliar >= MINIMO_APROVACAO;
-    }
-
-    public boolean getRecuperacao() {
-        double media = getMedia();
-        double mediaAuxiliar = media + VALOR_ARREDONDAMENTO;
-
-        return !getAprovado() && (media >= MINIMO_RECUPERACAO || mediaAuxiliar >= MINIMO_RECUPERACAO);
-    }
-
-    public boolean getReprovado() {
-        return !(getAprovado() || getRecuperacao());
-    }
-
-    public String getSituacao() {
-        if (getAprovado())
-            return "Aprovado";
-
-        if (getRecuperacao())
-            return "Em Recuperação";
-
-        return "Reprovado";
+    public Aluno(String nome, String documento, int codigoTurma, Disciplina disciplina) {
+        this.nome = nome;
+        this.documento = documento;
+        this.codigoTurma = codigoTurma;
+        this.disciplina = disciplina;
     }
 
     public String toString() {
-        return "Nome: " + (getNome() == null ? "" : getNome()) +
+        String result = "Nome: " + (getNome() == null ? "" : getNome()) +
                 "\nDocumento: " + (getDocumento() == null ? "" : getDocumento()) +
                 "\nNome do pai: " + (getNomePai() == null ? "" : getNomePai()) +
                 "\nNome da mãe: " + (getNomeMae() == null ? "" : getNomeMae()) +
                 "\nCódigo da Turma: " + getCodigoTurma() +
-                "\nMédia: " + getMedia() +
-                "\nSituação: " + getSituacao() +
-                (getAprovado() ? "\n\tParabéns pela sua aprovação" : getReprovado() ? "\n\tInfelizmente não foi dessa vez, mas não desista" : "");
+                "\nDisciplina: " + getDisciplina();
+
+        if (getDisciplina() != null)
+            result += (getDisciplina().getAprovado() ?
+                    "\n\tParabéns pela sua aprovação" :
+                    getDisciplina().getReprovado() ?
+                            "\n\tInfelizmente não foi dessa vez, mas não desista" :
+                            "");
+
+        return result;
     }
 
     public boolean equals(Object obj) {

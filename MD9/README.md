@@ -42,6 +42,15 @@
         // Atributo só pode se acessado dentro da classe.
         // É uma boa prática os atributos terem esse nível de acesso
         private double atributo3;
+    
+        // Tipo pode ser outra classe, podendo já ser inicializado na definição
+        // Este tipo é chamado de tipo complexo
+        private NomeClasse2 atributo4 = new NomeClasse2();
+    }
+    
+    public class NomeClasse2 {
+        int atributo1;
+        String atributo2;
     }
     ~~~
 
@@ -199,6 +208,9 @@ class Main {
 
         // Chamando o método toString (explicitamente)
         System.out.println("Dados do objeto: \n" + obj2.toString());
+        
+        // Chamando atributos de campos onde o tipo é outro objeto
+        obj2.getDocumento().setAtributo2("Teste");
     }
 }
 ~~~
