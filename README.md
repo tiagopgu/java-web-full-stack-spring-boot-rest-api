@@ -15,3 +15,7 @@ Acesse as anotações de cada módulo clicando nos links abaixo.
 5. [Operações Lógicas, Condicionais e Relacionais](MD8/README.md)
    1. [Projeto "Gestão Alunos"](Projetos/GestaoAlunos)
 6. [Programação Orientada a Objetos](MD9/README.md)
+   1. Classe
+   2. Objeto
+      1. Comparação de igualdade
+      2. Coleções: lista

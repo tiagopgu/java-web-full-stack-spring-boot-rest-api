@@ -1,5 +1,7 @@
 package jdev.curso.classes;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Aluno {
@@ -9,7 +11,8 @@ public class Aluno {
     String nomeMae;
     String nomePai;
     int codigoTurma;
-    Disciplina disciplina;
+
+    List<Disciplina> disciplina = new ArrayList<Disciplina>();
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -52,10 +55,10 @@ public class Aluno {
     }
 
     public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
+        this.disciplina.add(disciplina);
     }
 
-    public Disciplina getDisciplina() {
+    public List<Disciplina> getDisciplina() {
         return disciplina;
     }
 
@@ -81,7 +84,7 @@ public class Aluno {
         this.nome = nome;
         this.documento = documento;
         this.codigoTurma = codigoTurma;
-        this.disciplina = disciplina;
+        this.disciplina.add(disciplina);
     }
 
     public String toString() {
@@ -90,14 +93,15 @@ public class Aluno {
                 "\nNome do pai: " + (getNomePai() == null ? "" : getNomePai()) +
                 "\nNome da mãe: " + (getNomeMae() == null ? "" : getNomeMae()) +
                 "\nCódigo da Turma: " + getCodigoTurma() +
-                "\nDisciplina: " + getDisciplina();
+                "\nDisciplinas: ";
 
-        if (getDisciplina() != null)
-            result += (getDisciplina().getAprovado() ?
-                    "\n\tParabéns pela sua aprovação" :
-                    getDisciplina().getReprovado() ?
-                            "\n\tInfelizmente não foi dessa vez, mas não desista" :
+        for (Disciplina item : getDisciplina()) {
+            result += "\n\t" + item + (item.getAprovado() ?
+                    " - Parabéns pela sua aprovação" :
+                    item.getReprovado() ?
+                            " - Infelizmente não foi dessa vez, mas não desista" :
                             "");
+        }
 
         return result;
     }

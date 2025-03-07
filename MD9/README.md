@@ -325,4 +325,22 @@ class Main {
 
   > [Clique aqui](https://www.treinaweb.com.br/blog/para-que-servem-os-metodos-tostring-equals-e-gethashcode?utm_source=&utm_medium=&utm_campaign=&utm_content=&gad_source=1&gclid=CjwKCAiAiaC-BhBEEiwAjY99qEWt5g9Fawso5zrBhpaMy6pGowuAcBSH5uyeWadgYPW0ZGR41CGOgxoCvpwQAvD_BwE) para complementar informações sobre os método `toString`, `equals` e `hashCode`
   > 
-  > [Clique aqui](https://medium.com/@AlexanderObregon/javas-objects-equals-method-explained-3a84c963edfa) para complementar informações sobre o método Objects.equals 
+  > [Clique aqui](https://medium.com/@AlexanderObregon/javas-objects-equals-method-explained-3a84c963edfa) para complementar informações sobre o método Objects.equals
+
+## Coleções
+
+- Permite armazenar e manipular um conjunto de objetos
+- Uma única variável carrega a referência a coleção, acessando a partir dessas os objetos armazenados
+
+### Listas
+
+- Pacote da interface: `java.util.List;`
+- Pacote da implementação: `java.util.ArrayList;`
+- Lista genérica: `List lista = new ArrayList();`
+- Lista tipada: `List<String> lista = new ArrayList<String>();`
+- Principais métodos:
+  - `add`: Adiciona um item. Exemplo: `lista.add("Valor");`
+  - `addAll`: Adiciona itens de outra coleção. Exemplo: `lista.addAll(outraLista);`
+  - `get`: Recupera um item de uma dada posição. Exemplo: `String result = lista.get(0);`
+  - `remove`: Remove um item. Pode ser passado um objeto, ou o índice de um objeto. Exemplo: `lista.remove(obj); lista.remove(0);`
+  - `size`: Retorna o total de itens na coleção. Exemplo: `int totalItens = lista.size();`

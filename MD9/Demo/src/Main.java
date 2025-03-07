@@ -17,7 +17,15 @@ public class Main {
         disciplina.setNota3(6.0);
         disciplina.setNota4(10.0);
 
-        aluno1.setDisciplina(disciplina);;
+        aluno1.setDisciplina(disciplina);
+
+        disciplina = new Disciplina(2, "Disciplina 2");
+        disciplina.setNota1(8.1);
+        disciplina.setNota2(6.5);
+        disciplina.setNota3(7);
+        disciplina.setNota4(7.6);
+
+        aluno1.setDisciplina(disciplina);
 
         System.out.println("#1\n" + aluno1 + "\n");
 
