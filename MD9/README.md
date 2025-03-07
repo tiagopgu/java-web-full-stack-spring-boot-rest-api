@@ -32,7 +32,7 @@
 
     ~~~java
     public class NomeClasse {
-        // Este atributo não pode ser acessado fora da classe por ser private (padrão)
+        // Este atributo pode ser acessado somente dentro do mesmo pacote desta classe (padrão)
         int atributo1;
 
         // public permite que o atributo seja acessado fora da classe.
