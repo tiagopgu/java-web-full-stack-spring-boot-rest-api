@@ -340,6 +340,7 @@ class Main {
 - Lista tipada: `List<String> lista = new ArrayList<String>();`
 - Principais métodos:
   - `add`: Adiciona um item. Exemplo: `lista.add("Valor");`
+  - `set`: Atualiza um item em uma determinada posição. Exemplo: `lista.set(1, "Novo valor");`
   - `addAll`: Adiciona itens de outra coleção. Exemplo: `lista.addAll(outraLista);`
   - `get`: Recupera um item de uma dada posição. Exemplo: `String result = lista.get(0);`
   - `remove`: Remove um item. Pode ser passado um objeto, ou o índice de um objeto. Exemplo: `lista.remove(obj); lista.remove(0);`
