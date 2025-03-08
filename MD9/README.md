@@ -344,6 +344,8 @@ class Main {
   - `get`: Recupera um item de uma dada posição. Exemplo: `String result = lista.get(0);`
   - `remove`: Remove um item. Pode ser passado um objeto, ou o índice de um objeto. Exemplo: `lista.remove(obj); lista.remove(0);`
   - `size`: Retorna o total de itens na coleção. Exemplo: `int totalItens = lista.size();`
-- Percorrendo itens de uma lista: `for (String item : lista) { /* bloco de Código */ }` 
+- Percorrendo itens de uma lista:
+  - Sem uso de índex: `for (String item : lista) { System.out.println(item); }` 
+  - Usando índex: `for (int i = 0; i < lista.size(); i++) { String item = lista.get(i); System.out.println(item); }` 
 
 > Em coleções indexadas, o índice inicia em 0. Com isso, uma lista com tamanho 2 tem os indices 0 e 1
