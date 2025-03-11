@@ -1,5 +1,7 @@
 package jdev.curso.classes;
 
+import jdev.curso.constantes.Situacao;
+
 import java.util.Objects;
 
 public class Disciplina {
@@ -103,16 +105,16 @@ public class Disciplina {
 
     public String getSituacao() {
         if (getAprovado())
-            return "Aprovado";
+            return Situacao.APROVADO;
 
         if (getRecuperacao())
-            return "Em Recuperação";
+            return Situacao.RECUPERACAO;
 
-        return "Reprovado";
+        return Situacao.REPROVADO;
     }
 
     public String toString() {
-        return "[" + getCodigo() + "] " + getTitulo() + " - Média: " + getMedia() + " - Situação: " + getSituacao();
+        return "[" + getCodigo() + "] " + getTitulo() + " - Média: " + getMedia() + " - Situação: " + getSituacao() + " (" + Situacao.getDescricao(getSituacao()) + ")";
     }
 
     public boolean equals(Object obj) {

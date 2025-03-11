@@ -16,6 +16,7 @@ Acesse as anotações de cada módulo clicando nos links abaixo.
    1. [Projeto "Gestão Alunos"](Projetos/GestaoAlunos)
 6. [Programação Orientada a Objetos](MD9/README.md)
    1. Classe
+      1. Membros estáticos
    2. Objeto
       1. Comparação de igualdade
       2. Coleções: lista

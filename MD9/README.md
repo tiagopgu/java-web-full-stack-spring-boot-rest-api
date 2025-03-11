@@ -155,6 +155,52 @@
 
 > [Projeto Demo](https://github.com/tiagopgu/java-web-full-stack-spring-boot-rest-api/blob/57401b56169fcca3c05264c3ac8b7a993c56f020/MD9/Demo/src/jdev/curso/classes/Aluno.java#L1)
 
+### Membro estático
+
+- Definido com o uso da palavra chave `static`
+  - Pode ser declarado junto a membros não estáticos
+- São acessados através do nome da classe e não da instância da classe
+- Sintaxe
+
+  ~~~java
+  public class TestStatic {
+    // Atributo não estático
+    private int atributo;
+  
+    // Neste caso, o membro se comporta como uma constante, que por convenção é escrito em caixa alta
+    public static String ATRIBUTO_STATIC = "Valor";
+  
+    public void setAtributo(int atributo) {
+        this.atributo = atributo;
+    }
+  
+    public int getAtributo() {
+        return atributo;
+    }
+  
+    public static String metodoStatico() {
+        // Membros não estático e o this não pode ser acessado aqui
+        return "Alguma coisa";
+    }
+  }
+  
+  static class Main() {
+    public static void main(String[] args) {
+        TestStatic obj = new TestStatic();
+  
+        // Membros não estáticos são chamados através da instância
+        obj.setAtributo(5);
+  
+        System.out.println(obj.getAtributo());
+  
+        // Membros estáticos são chamados a partir da classe
+        System.out.println(TestStatic.ATRIBUTO_STATIC);
+  
+        System.out.println(TestStatic.metodoStatico());
+    }
+  }
+  ~~~
+
 ## Objeto
 
 - Criado a partir de um modelo de _classe_ (processo chamado de _instanciação_)
