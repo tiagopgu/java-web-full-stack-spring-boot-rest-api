@@ -1,10 +1,15 @@
 import jdev.curso.classes.*;
+import jdev.curso.constantes.Situacao;
 
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     private static List<Aluno> alunos = new ArrayList<Aluno>();
+    private static HashMap<String, HashMap<String, List<Aluno>>> relatorioAlunos = new HashMap<String, HashMap<String, List<Aluno>>>();
 
     public static void main(String[] args) {
         System.out.println("Cadastro de Alunos!\n");
@@ -13,6 +18,37 @@ public class Main {
 
         for (Aluno aluno : alunos) {
             System.out.println("\n" + aluno);
+        }
+
+        carregarRelatorioAlunos();
+
+        System.out.println("\n************ RELATÓRIO DE ALUNOS ************\n");
+
+        System.out.println("Total de aluno: " + alunos.size());
+        System.out.println("Situação dos alunos por disciplina: ");
+
+        for (String disciplina : relatorioAlunos.keySet()) {
+            System.out.println("\t Disciplina: " + disciplina);
+
+            System.out.println("\t\tAprovados:");
+
+            for (Aluno aluno : relatorioAlunos.get(disciplina).get(Situacao.APROVADO)) {
+                System.out.println("\t\t\t- " + aluno.getNome());
+            }
+
+            System.out.println("\t\tEm Recuperação:");
+
+            for (Aluno aluno : relatorioAlunos.get(disciplina).get(Situacao.RECUPERACAO)) {
+                System.out.println("\t\t\t- " + aluno.getNome());
+            }
+
+            System.out.println("\t\tReprovados:");
+
+            for (Aluno aluno : relatorioAlunos.get(disciplina).get(Situacao.REPROVADO)) {
+                System.out.println("\t\t\t- " + aluno.getNome());
+            }
+
+            System.out.println();
         }
 
         testeIgualdade();
@@ -75,6 +111,30 @@ public class Main {
         aluno = new Aluno("Maria Tereza Laura Campos", "44664360029", 103, disciplina);
 
         alunos.add(aluno);
+    }
+
+    public static void carregarRelatorioAlunos() {
+        for (Aluno aluno : alunos) {
+            for (Disciplina disciplina : aluno.getDisciplina()) {
+
+                if (!relatorioAlunos.containsKey(disciplina.getTitulo())) {
+
+                    relatorioAlunos.put(disciplina.getTitulo(), new HashMap<String, List<Aluno>>());
+
+                    relatorioAlunos.get(disciplina.getTitulo()).put(Situacao.APROVADO, new ArrayList<Aluno>());
+                    relatorioAlunos.get(disciplina.getTitulo()).put(Situacao.RECUPERACAO, new ArrayList<Aluno>());
+                    relatorioAlunos.get(disciplina.getTitulo()).put(Situacao.REPROVADO, new ArrayList<Aluno>());
+                }
+
+                if (disciplina.getSituacao().equals(Situacao.APROVADO)) {
+                    relatorioAlunos.get(disciplina.getTitulo()).get(Situacao.APROVADO).add(aluno);
+                } else if (disciplina.getSituacao().equals(Situacao.RECUPERACAO)) {
+                    relatorioAlunos.get(disciplina.getTitulo()).get(Situacao.RECUPERACAO).add(aluno);
+                } else {
+                    relatorioAlunos.get(disciplina.getTitulo()).get(Situacao.REPROVADO).add(aluno);
+                }
+            }
+        }
     }
 
     private static void testeIgualdade() {

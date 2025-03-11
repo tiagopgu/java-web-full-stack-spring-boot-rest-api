@@ -19,4 +19,6 @@ Acesse as anotações de cada módulo clicando nos links abaixo.
       1. Membros estáticos
    2. Objeto
       1. Comparação de igualdade
-      2. Coleções: lista
+      2. Coleções
+         1. List
+         2. HashMap
