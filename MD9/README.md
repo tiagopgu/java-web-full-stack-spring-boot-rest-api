@@ -407,11 +407,11 @@ class Main {
 - Pacote: `java.util.HashMap`
 - Sintaxe: `HashMap<String, NomeClasse> map = new HashMap<String, Object>();`
 - Principais métodos
-  - `put`: Adiciona uma chave e um valor à lista. Exemplo: `map.pust("Chave 1", new NomeClasse());`
+  - `put`: Adiciona uma chave e um valor à lista. Exemplo: `map.put("Chave 1", new NomeClasse());`
   - `get`: Retorna o valor relacionado a uma chave. Exemplo: `NomeClasse valor = map.get("Chave 1");`
   - `containsKey`: Checa se uma chave já existe na lista. Exemplo: `boolean result = map.containsKey("Chave 1")`;
   - `keySet`: Retorna uma coleção de chaves da lista. Exemplo: `Set<String> chaves = map.keySet();`
   - `values`: Retorna uma coleção de valores da lista. Exemplo: `Collection<NomeClasse> valores = map.values();`
 - Pode ser percorrido tanto pelas chaves, quanto pelos valores.
-  - Exemplo por chave: `for (String chave : map.keySet()) { System.out.println(chave); }` 
-  - Exemplo por valor: `for (NomeClasse obj : map.values()) { System.out.println(obj); }` 
+  - Exemplo por chave: `for (String chave : map.keySet()) { System.out.println(chave); }`
+  - Exemplo por valor: `for (NomeClasse obj : map.values()) { System.out.println(obj); }`
