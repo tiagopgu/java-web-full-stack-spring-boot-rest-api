@@ -62,7 +62,7 @@
 
       ~~~java
       public class NomeClasse {
-        int atributo;
+        private int atributo;
     
         // Os dois métodos a seguir são chamados de acessores do atributo acima
         public void setAtributo(int atributo) {
@@ -87,8 +87,8 @@
 
       ~~~java
       public class NomeClasse {
-        int atributo1;
-        String atributo2;
+        private int atributo1;
+        private String atributo2;
 
         // Métodos acessores
 
@@ -114,8 +114,8 @@
 
       ~~~java
       public class NomeClasse {
-        int atributo1;
-        String atributo2;
+        private int atributo1;
+        private String atributo2;
         // Outros membros da classe
 
         // Sobrescreve o comportamento padrão
@@ -296,8 +296,8 @@ class Main {
   import java.util.Objects;
   
   public class NomeClasse {
-    int atributo;
-    String atributo2;
+    private int atributo;
+    private String atributo2;
   
     // Demais membros da classe
   
@@ -343,8 +343,8 @@ class Main {
 
   ~~~java
   public class NomeClasse {
-    int atributo;
-    String atributo2;
+    private int atributo;
+    private String atributo2;
   
     // Demais membros da classe
   
