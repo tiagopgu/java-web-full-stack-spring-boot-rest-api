@@ -145,8 +145,8 @@
             return "Faz alguma coisa";
         }
     
-        // Método sem retorno e acessado somente internamente.
-        // Se não definido o modificador de acesso, o padrão é private
+        // Método sem retorno e acessado somente dentro do mesmo pacote desta classe.
+        // Se não definido o modificador de acesso, o padrão é internal
         void metodo2 () {
             // Faz alguma coisa
         }
