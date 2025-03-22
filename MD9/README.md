@@ -206,12 +206,12 @@
 - Criado a partir de um modelo de _classe_ (processo chamado de _instanciação_)
 - Tem seus dados carregados e irá interagir (por meio de mensagens) com outros objetos criados durante a execução do sistema
 - A instanciação cria o objeto na memória
+  - Ocorre quando é usado o comando `new`: `NomeClasse obj = new NomeClasse();`
   - O objeto é criado na memóra _heap_
   - A variável será criada na memória _stack_ e guardará uma referência para a posição de memória onde o objeto foi criado
   - A variável é do tipo referência, por guardar um ponteiro para o objeto
   - A cópia de uma variável para outra irá copiar a referência para o mesmo objeto, e não o objeto em si
-- A instanciação ocorre quando é usado o comando `new`: `NomeClasse obj = new NomeClasse();`
-  - A tentativa de chamar um método ou propriedade da classe a partir de uma variável do tipo da classe, porém não instanciado o objeto, gera a exceção `NullPointerException`.
+- A tentativa de chamar um método ou propriedade da classe a partir de uma variável do tipo da classe, porém não instanciado o objeto, gera a exceção `NullPointerException`.
 - Exemplo
 
 ~~~java
