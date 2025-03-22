@@ -94,7 +94,7 @@
 
         // Construtor sem parâmetro.
         // Definido implicitamente, caso nenhum outro construtor seja definido
-        // Se definido outro construtor e este for necessário, deve definido explicitamente
+        // Se definido outro construtor e este for necessário, este deve ser definido explicitamente
         public NomeClasse() {
         }
         
@@ -211,7 +211,7 @@
   - A variável é do tipo referência, por guardar um ponteiro para o objeto
   - A cópia de uma variável para outra irá copiar a referência para o mesmo objeto, e não o objeto em si
 - A instanciação ocorre quando é usado o comando `new`: `NomeClasse obj = new NomeClasse();`
-  - A tentativa de chamar um método ou propriedade da classe a partir de uma variável do tipo da classe, porém não instanciado o objeto, gera a execeção `NullPointerException`.
+  - A tentativa de chamar um método ou propriedade da classe a partir de uma variável do tipo da classe, porém não instanciado o objeto, gera a exceção `NullPointerException`.
 - Exemplo
 
 ~~~java
@@ -310,7 +310,7 @@ class Main {
         if (obj == null || this.getClass() != obj.getClass()) return false;
   
         // Testando atributos que irão diferenciar um objeto de outro (podem não ser todos)
-        // Objects.equals provê mais segurança no tratamento de null, evitanto o erro NullPointerException (import necessário)
+        // Objects.equals provê mais segurança no tratamento de null, evitando o erro NullPointerException (import necessário)
         NomeClasse other = (NomeClasse) obj;
         return Objects.equals(atributo2, other.atributo2);
     }
@@ -339,7 +339,7 @@ class Main {
   
   > `==` compara as referências de memória de duas variáveis
 
-- Caso o método `equals` seja sobrescrito, deve ser sobrescrito também o método `hashCode`, que é usado internamento pelo compilador para busca de objetos em listas
+- Caso o método `equals` seja sobrescrito, deve ser sobrescrito também o método `hashCode`, que é usado internamente pelo compilador para busca de objetos em listas
 
   ~~~java
   public class NomeClasse {
@@ -392,8 +392,8 @@ class Main {
   - `remove`: Remove um item. Pode ser passado um objeto, ou o índice de um objeto. Exemplo: `lista.remove(obj); lista.remove(0);`
   - `size`: Retorna o total de itens na coleção. Exemplo: `int totalItens = lista.size();`
 - Percorrendo itens de uma lista:
-  - Sem uso de índex: `for (String item : lista) { System.out.println(item); }` 
-  - Usando índex: `for (int i = 0; i < lista.size(); i++) { String item = lista.get(i); System.out.println(item); }` 
+  - Sem uso de index: `for (String item : lista) { System.out.println(item); }` 
+  - Usando index: `for (int i = 0; i < lista.size(); i++) { String item = lista.get(i); System.out.println(item); }` 
 
 > Em coleções indexadas, o índice inicia em 0. Com isso, uma lista com tamanho 2 tem os indices 0 e 1
 
