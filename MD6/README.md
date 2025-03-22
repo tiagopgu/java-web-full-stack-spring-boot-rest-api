@@ -29,3 +29,7 @@
 > Normalmente as IDE's de desenvolvimento possuem integração com o Git, permitindo graficamente usar os comandos acima.
 > 
 > É possível também utilizar os comandos do Git via CLI.
+
+> [Clique aqui](https://www.freecodecamp.org/news/how-to-use-git-submodules/) para saber sobre o recurso de submódulos do git
+
+> <a href="https://semver.org/lang/pt-BR/" target="_blank">Clique aqui</a> para entender mais sobre versionamento semântico, muito usado para criar versões de sistema.

@@ -13,4 +13,12 @@ Acesse as anotações de cada módulo clicando nos links abaixo.
 3. [Versionamento de código](MD6/README.md)
 4. [Variáveis e Tipos de Dados](MD7/README.md)
 5. [Operações Lógicas, Condicionais e Relacionais](MD8/README.md)
-   1. [Projeto "Média Escolar"](MD8/Projeto/MediaEscolar)
+   1. [Projeto "Gestão Alunos"](Projetos/GestaoAlunos)
+6. [Programação Orientada a Objetos](MD9/README.md)
+   1. Classe
+      1. Membros estáticos
+   2. Objeto
+      1. Comparação de igualdade
+      2. Coleções
+         1. List
+         2. HashMap

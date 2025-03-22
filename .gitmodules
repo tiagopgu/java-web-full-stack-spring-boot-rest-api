@@ -1,0 +1,3 @@
+[submodule "GestaoAlunos"]
+	path = Projetos/GestaoAlunos
+	url = git@github.com:tiagopgu/Java-Desktop-GestaoAlunos.git
