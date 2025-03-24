@@ -8,6 +8,7 @@
 - Classe herdada é chamada de superclasse, classe mãe ou classe base
 - Classe que herda é chamada de classe filha, subclasse ou classe derivada
 - Conceito de generalização/especialização
+  - Caso seja necessário impedir a instanciação da classe genérica, use a palavra `abstract` após o modificador de acesso na declaração da classe
 - Conceito do ´é-um´: classe derivada é uma classe base
 - Herança indicada pelo uso da palavra-chave `extends`
   - Modificador de acesso `protected` permite que membros possam ser acessados somente na classe base e classe derivada
@@ -17,7 +18,8 @@
 - Exemplo:
 
   ~~~java
-  public class ClasseBase {
+  // A classe base não pode ser instanciada
+  public abstract class ClasseBase {
     // Modificador de acesso protected permite acesso somente na classe base e derivadas
     protected String atributo;
   
@@ -91,6 +93,9 @@
   
   public class TesteHeranca {
     public static void main(String[] args) {
+        // Código abaixo gera erro
+        //ClasseBase objBase = new ClasseBase();
+  
         ClasseDerivada objDerivado1 = new ClasseDerivada("Valor 1");
   
         // Chamando membro da classe derivada

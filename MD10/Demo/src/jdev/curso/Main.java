@@ -2,6 +2,7 @@ package jdev.curso;
 
 import jdev.curso.classes.Aluno;
 import jdev.curso.classes.Instrutor;
+import jdev.curso.classes.Pessoa;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +23,9 @@ public class Main {
         Instrutor instrutor = new Instrutor("15936805", "Marcia Nunes Bueno", "59886505");
 
         System.out.println(instrutor);
-        System.out.println("Documento Formatado: " + instrutor.getDocumentoFormatado() + "\n");
+        System.out.println("Documento Formatado: " + instrutor.getDocumentoFormatado());
+
+        // Esse código gera erro: classe abstrata não pode ser instanciada
+        //Pessoa pessoa = new Pessoa();
     }
 }
