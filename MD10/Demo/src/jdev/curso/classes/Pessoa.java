@@ -1,6 +1,7 @@
 package jdev.curso.classes;
 
 public abstract class Pessoa {
+    protected String codigo;
     protected String nome;
     protected String documento;
     protected String dataNascimento;
@@ -8,6 +9,15 @@ public abstract class Pessoa {
     protected Pessoa(String documento, String nome) {
         setDocumento(documento);
         setNome(nome);
+        setCodigo();
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    private void setCodigo() {
+        this.codigo = gerarCodigo();
     }
 
     public String getNome() {
@@ -43,7 +53,6 @@ public abstract class Pessoa {
     }
 
     public String getDocumentoFormatado() {
-        // 000.159.368-05 - 00.15.36-05
         String documentoAux = documento.substring(0, 3) + ".";
 
         documentoAux = documentoAux + documento.substring(3, 6) + ".";
@@ -53,10 +62,13 @@ public abstract class Pessoa {
         return documentoAux;
     }
 
+    protected abstract String gerarCodigo();
+
     @Override
     public String toString() {
         return "Pessoa{" +
-                "dataNascimento='" + dataNascimento + '\'' +
+                "Código='" + getCodigo() + '\'' +
+                ", dataNascimento='" + dataNascimento + '\'' +
                 ", nome='" + nome + '\'' +
                 ", documento='" + documento + '\'' +
                 '}';

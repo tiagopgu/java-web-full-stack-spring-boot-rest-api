@@ -9,7 +9,8 @@
 - Classe que herda é chamada de classe filha, subclasse ou classe derivada
 - Conceito de generalização/especialização
   - Caso seja necessário impedir a instanciação da classe genérica, use a palavra `abstract` após o modificador de acesso na declaração da classe
-- Conceito do ´é-um´: classe derivada é uma classe base
+    - Palavra-chave `abstract` também pode ser usada em métodos, para obrigar a implementação deste nas classes derivadas. Portanto, método abstrato não possui implementação.
+- Conceito do _é-um_: tipo da classe derivada é um tipo da classe base
 - Herança indicada pelo uso da palavra-chave `extends`
   - Modificador de acesso `protected` permite que membros possam ser acessados somente na classe base e classe derivada
   - Membros da classe base podem ser referenciados na classe derivada com o uso da palavra-chave `super`
@@ -38,13 +39,18 @@
     public boolean validarAtributo() {
         return atributo.length() > 5 && atributo.length() < 60;
     }
+  
+    // Classes derivadas são obrigadas a implementarem este método
+    public abstract String gerarCodigo();
   }
   
   public class ClasseDerivada extends ClasseBase {
     private boolean ativo;
   
     public ClasseDerivada(String atributo) {
-        base(atributo);
+        // super permite acessar membros da classe base
+        // Neste caso, acesso ao construtor com um parâmetro
+        super(atributo);
   
         setAtivo(true);
     }
@@ -56,38 +62,46 @@
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
+  
+    @Override
+    public String gerarCodigo() {
+        return "AB123";
+    }
   }
   
   public class ClasseDerivada2 extends ClasseBase {
-    private int codigo;
+    private int valor;
   
-    public ClasseDerivada2(int codigo, String atributo) {
-        // super permite acessar membros da classe base
-        // Neste caso, acesso ao construtor com um parâmetro
+    public ClasseDerivada2(int valor, String atributo) {
         super(atributo);
   
-        setCodigo(codigo);
+        setValor(valor);
     }
   
-    public int getCodigo() {
-        return codigo;
+    public int getValor() {
+        return valor;
     }
   
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setValor(int valor) {
+        this.valor = valor;
     }
   
     // Método toString é herdado da classe Object
     @Override
     public String toString() {
         // Atributos da classe base pode ser acessado normalmente, desde que não seja private
-        return "[" + codigo + "] " + atributo; 
+        return "[" + valor + "] " + atributo; 
     }
   
     // Sobrescrevendo comportamento padrão definido na classe base 
     @Override
     public boolean validarAtributo() {
         return atributo.length() > 1 && atributo.length() <= 10;
+    }
+  
+    @Override
+    public String gerarCodigo() {
+        return "GTY869";
     }
   }
   
@@ -97,19 +111,22 @@
         //ClasseBase objBase = new ClasseBase();
   
         ClasseDerivada objDerivado1 = new ClasseDerivada("Valor 1");
+        ClasseDerivada2 objDerivado2 = new ClasseDerivada2(5, "Valor 2");
   
         // Chamando membro da classe derivada
         System.out.println(objDerivado1.getAtivo());
+        System.out.println(objDerivado2.getValor());
   
-        // Chamando membro da classe base
+        // Chamando membro herdado da classe base
         System.out.println(objDerivado1.getAtributo());
+        System.out.println(objDerivado2.getAtributo());
   
         // Chamando comportamento definido na classe base
         System.out.println(objDerivado1.validarAtributo());
   
-        ClasseDerivada2 objDerivado2 = new ClasseDerivada2(5, "Valor 2");
-  
         // Chamando comportamento sobrescrito na classe derivada
+        System.out.println(objDerivado1.gerarCodigo());
+        System.out.println(objDerivado2.gerarCodigo());
         System.out.println(objDerivado2.validarAtributo());
     }
   }
