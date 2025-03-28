@@ -131,3 +131,55 @@
     }
   }
   ~~~
+  
+## Interface
+
+- Define a assinatura de métodos públicos, sem implementá-los
+- Cria um contrato com uma classe, obrigando esta implementar os comportamentos definidos na interface
+- Uma classe implementa uma interface usando a palavra-chave `implements`
+  - Mais de uma interface pode ser implementada, separando-as por `,`. Exemplo: `public class Teste implements Interface1, Interface2 { }`
+- Exemplo:
+- 
+  ~~~java
+  public interface Pagamento {
+    // Automaticamente, o método é público
+    double calcularSalario();
+  }
+  
+  public class Gerente implements Pagamento {
+    // Demais membros
+  
+    @Override
+    public double calcularSalario() {
+        return 73659.56;
+    }
+  }
+  
+  public class Secretario implements Pagamento {
+    // Demais membros
+  
+    @Override
+    public double calcularSalario() {
+        return 3659.98;
+    }
+  }
+  
+  public class Socio {
+    // membros
+  }
+  
+  public class Teste {
+    public static void main(String[] args) {
+        Gerente gerente = new Gerente();
+        Secretario secretario = new Secretario();
+        Socio socio = new Socio();
+  
+        // Chamando comportamento definido na interface
+        System.out.println(gerente.calcularSalario());
+        System.out.println(secretario.calcularSalario());
+        
+        // Chamada inválida: Socio não implementa a interface Pagamento
+        //System.out.println(socio.calcularSalario());
+    }
+  }
+  ~~~

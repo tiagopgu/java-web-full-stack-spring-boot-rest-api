@@ -1,8 +1,10 @@
 package jdev.curso.classes;
 
+import jdev.curso.interfaces.Colaborador;
+
 import java.util.Random;
 
-public class Instrutor extends Pessoa {
+public class Instrutor extends Pessoa implements Colaborador {
     private String registroProfissional;
 
     public Instrutor(String documento, String nome, String registroProfissional) {
@@ -47,5 +49,15 @@ public class Instrutor extends Pessoa {
         }
 
         return codigo;
+    }
+
+    @Override
+    public double calcularSalario() {
+        return 3116.16;
+    }
+
+    @Override
+    public boolean baterPonto(String data) {
+        return true;
     }
 }

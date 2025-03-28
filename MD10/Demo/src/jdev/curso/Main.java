@@ -24,6 +24,8 @@ public class Main {
 
         System.out.println(instrutor);
         System.out.println("Documento Formatado: " + instrutor.getDocumentoFormatado());
+        System.out.println("Salário: " + instrutor.calcularSalario());
+        System.out.println("Ponto batido: " + instrutor.baterPonto("2025-03-27"));
 
         // Esse código gera erro: classe abstrata não pode ser instanciada
         //Pessoa pessoa = new Pessoa();
