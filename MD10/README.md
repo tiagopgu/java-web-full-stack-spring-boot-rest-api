@@ -183,3 +183,44 @@
     }
   }
   ~~~
+
+## Polimorfismo
+
+- Ocorre quando é possível referenciar um subtipo a partir do tipo base
+- Permite acessar através da classe genérica membros da classe especializada, desde que estes membros estejam presentes na classe genérica
+- Pode ser aplicado usando classes abstratas ou interfaces.
+- Exemplo:
+
+  ~~~java
+  // Teste usando definições dos tópicos anteriores
+  public class TestePolimorfismo {
+    public static void main(String[] args) {
+        // Polimorfismo usando classe abstrata
+        List<ClasseBase> classesDerivadas = new ArrayList<>();
+  
+        // Classes derivadas do tipo da lista genérica podem ser adicionadas à lista
+        classesDerivadas.add(new ClasseDerivada("Valor 1"));
+        classesDerivadas.add(new ClasseDerivada2(2, "Valor 2"));
+  
+        // É possível referenciar subtipos a partir do tipo base
+        for (ClasseBase classeDerivada : classesDerivadas) {
+            // Comportamento definido no tipo base será chamado em cada instância derivada 
+            System.out.println("Código: " + classeDerivada.gerarCodigo());
+            System.out.println("Atributo válido: " + classeDerivada.validarAtributo());
+        }
+  
+        // Polimorfismo utilizando interface
+        List<Pagamento> pagamentos = new ArrayList<>();
+  
+        // Lista genérica permite adicionar qualquer tipo que implemente a interface definida para a lista
+        pagamentos.add(new Gerente());
+        pagamentos.add(new Secretario());
+  
+        // É possível referenciar tipos que implementam a interface através de uma variável com o tipo da interface
+        for (Pagamento pagamento : pagamentos) {
+            // A partir do tipo da interface, é possível chamar os comportamentos definidos, independente do objeto que implementa essa interface
+            System.out.println("Salário: " + pagamento.calcularSalario());
+        }
+    }
+  }
+  ~~~
