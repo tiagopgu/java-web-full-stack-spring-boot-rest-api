@@ -23,3 +23,4 @@ Acesse as anotações de cada módulo clicando nos links abaixo.
          1. List
          2. HashMap
 7. [Herança, Polimorfismo e Interface](MD10/README.md)
+8. [Tratamento de Erro e Exceções](MD11/README.md)
