@@ -35,8 +35,9 @@
 
 - Uma exceção lançada causa a parada da aplicação
 - O tratamento faz com que a aplicação se recupere e continue o funcionamento
-- Para tratar uma exceção, é usado o bloco `try {} catch(Exception e) {}`
+- Para tratar uma exceção, é usado o bloco `try {} catch(Exception e) {} finally {}`
   - É possível ter vários blocos `catch`, para tratar exceções específicas
+  - O bloco `finally` é opcional, e sempre será executado, independente de erro ou não. Muito usado, por exemplo, para encerrar algum recurso (um arquivo aberto, por exemplo).
 
   ~~~java
   public class TestException {
@@ -51,6 +52,9 @@
             // Aqui realizamos o tratamento de qualquer exceção não capturada em blocos anteriores
 
             ex.printStackTrace(); // Este método escreve a pilha de chamados no console 
+        }
+        finally {
+          // Este bloco é opcional e será sempre executado, tendo erro ou não
         }
     }
   }

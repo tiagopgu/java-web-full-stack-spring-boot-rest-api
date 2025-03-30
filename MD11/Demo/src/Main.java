@@ -2,16 +2,16 @@ import java.security.cert.Extension;
 
 public class Main {
     public static void main(String[] args) {
-        testeExcecaoTratada();
+        testeSemExcessao();
+        System.out.println();
 
+        testeExcecaoTratada();
         System.out.println();
 
         testeExcecaoTratada2();
-
         System.out.println();
 
         testeMultiplaExcecaoTratada();
-
         System.out.println();
 
         testeExcecaoNaoTratada();
@@ -19,11 +19,25 @@ public class Main {
         System.out.println("Testes de exceção finalizados");
     }
 
+    private static void testeSemExcessao() {
+        System.out.println("> Iniciando teste sem exceção...\n");
+
+        try {
+            int resultado = realizarDivisao(9, 3);
+
+            System.out.println("Resultado: " + resultado);
+        } catch (Exception ex) {
+            escreverStackTracer(ex);
+        } finally {
+            System.out.println("\nBloco finally executado...");
+        }
+    }
+
     private static void testeExcecaoTratada() {
         try {
             System.out.println("> Iniciando teste de exceção tratada...\n");
 
-            int resultado = realizarDivisao();
+            int resultado = realizarDivisao(9, 0);
 
             System.out.println("Resultado tratado: " + resultado);
         } catch (Exception ex) {
@@ -32,13 +46,16 @@ public class Main {
             // Visualização do stack trace pode ser personalizada
             escreverStackTracer(ex);
         }
+        finally {
+            System.out.println("\nBloco finally executado...");
+        }
     }
 
     private static void testeExcecaoTratada2() {
         try {
             System.out.println("> Iniciando segundo teste de exceção tratada...\n");
 
-            int resultado = realizarDivisao();
+            int resultado = realizarDivisao(9, 0);
 
             System.out.println("Resultado tratado: " + resultado);
         } catch (Exception ex) {
@@ -47,21 +64,13 @@ public class Main {
         }
     }
 
-    private static void testeExcecaoNaoTratada() {
-        System.out.println("> Iniciando teste de exceção não tratada...\n");
-
-        int resultado = realizarDivisao();
-
-        System.out.println("Resultado não tratado: " + resultado);
-    }
-
     private static void testeMultiplaExcecaoTratada() {
         try {
             System.out.println("> Iniciando teste de múltipla exceção tratada...\n");
 
             String valorEntrada = "123O";
             int numero = Integer.parseInt(valorEntrada);
-            int resultado = realizarDivisao() + numero;
+            int resultado = realizarDivisao(9, 0) + numero;
 
             System.out.println("Resultado tratado: " + resultado);
         } catch (NumberFormatException ex) {
@@ -78,10 +87,15 @@ public class Main {
         }
     }
 
-    private static int realizarDivisao() {
-        int dividendo = 9;
-        int divisor = 0;
+    private static void testeExcecaoNaoTratada() {
+        System.out.println("> Iniciando teste de exceção não tratada...\n");
 
+        int resultado = realizarDivisao(9, 0);
+
+        System.out.println("Resultado não tratado: " + resultado);
+    }
+
+    private static int realizarDivisao(int dividendo, int divisor) {
         return dividendo / divisor;
     }
 
