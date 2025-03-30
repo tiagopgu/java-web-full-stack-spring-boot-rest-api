@@ -36,15 +36,20 @@
 - Uma exceção lançada causa a parada da aplicação
 - O tratamento faz com que a aplicação se recupere e continue o funcionamento
 - Para tratar uma exceção, é usado o bloco `try {} catch(Exception e) {}`
+  - É possível ter vários blocos `catch`, para tratar exceções específicas
 
   ~~~java
   public class TestException {
     public static void main(String[] args) {
         try {
             // Aqui algum código que pode lançar exceção
-        } catch (Exception ex) {
-            // Aqui realizamos o tratamento da exceção
-  
+        }
+        catch(NumberFormatException ex) {
+            // Aqui realizamos o tratamento de uma exceção específica
+        }
+        catch (Exception ex) {
+            // Aqui realizamos o tratamento de qualquer exceção não capturada em blocos anteriores
+
             ex.printStackTrace(); // Este método escreve a pilha de chamados no console 
         }
     }
