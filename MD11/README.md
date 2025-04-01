@@ -59,3 +59,46 @@
     }
   }
   ~~~
+
+### Exceção Customizada
+
+- Permite personalizar o lançamento e o tratamento de erros
+- Exceção personalizada é uma classe que deve estender a classe `Exception`, ou outra classe que herde de `Exception`
+- É um padrão o nome da classe terminar com `Exception`.
+- Exemplo:
+
+  ~~~java
+  public class ExemploException extends Exception {
+    // Pode ter um construtor para receber uma mensagem
+    public ExemploException(String mensagem) {
+        // A mensagem deve ser enviada para a classe base
+        super(mensagem);
+    }
+  }
+  ~~~
+### Lançando Exceção
+
+- Para lançar uma exceção, use a palavra-chave `throw`. Exemplo: `throw new Exception("Mensagem"");`
+  - Quando lançada uma exceção personalizada em um método sem tratamento com `try`, deve ser incluído na assinatura do método a palavra-chave `throws`, seguida das exceções, separadas por vírgula, que podem ser lançadas.
+  - A palavra-chave `throws` obriga quem estiver chamando o método, fazê-lo dentro do bloco `try` ou incluir na definição do método chamador a mesma palavra-chave e as exceções que podem ser lançada pelo método chamado
+- Exemplo:
+
+  ~~~java
+  public class TesteExcecao {
+    public static void main(String[] args) {
+        String valor = System.in.read();
+        operacao(valor);
+    }
+  
+    private static int operacao(String valor) throws ExemploException {
+        // Pode lançar uma exceção aqui
+        int numero = Integer.parseInt(valor);
+  
+        // Forçando o lançamento de uma exceção personalizada
+        if (numero == 0)
+            throw new ExemploException("Número não pode ser 0");
+  
+        return 500 / numero;
+    }
+  }
+  ~~~

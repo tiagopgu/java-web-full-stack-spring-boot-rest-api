@@ -14,6 +14,9 @@ public class Main {
         testeMultiplaExcecaoTratada();
         System.out.println();
 
+        testeExcecaoPersonalizada();
+        System.out.println();
+
         testeExcecaoNaoTratada();
 
         System.out.println("Testes de exceção finalizados");
@@ -87,6 +90,25 @@ public class Main {
         }
     }
 
+    private static void testeExcecaoPersonalizada() {
+        System.out.println("> Iniciando teste de lançamento de exceção personalizada...\n");
+
+        try {
+            int resultado = realizarDivisao2(9, 0);
+
+            System.out.println("Resultado personalizado: " + resultado);
+        } catch (CursoException ex) {
+            System.out.println("Erro na operação: ");
+
+            escreverStackTracer(ex);
+        }
+        catch(Exception ex) {
+            System.out.println("Erro inesperado: ");
+
+            escreverStackTracer(ex);
+        }
+    }
+
     private static void testeExcecaoNaoTratada() {
         System.out.println("> Iniciando teste de exceção não tratada...\n");
 
@@ -96,6 +118,13 @@ public class Main {
     }
 
     private static int realizarDivisao(int dividendo, int divisor) {
+        return dividendo / divisor;
+    }
+
+    private static int realizarDivisao2(int dividendo, int divisor) throws CursoException {
+        if (divisor == 0)
+            throw new CursoException("Não é possível realizar divisão por 0");
+
         return dividendo / divisor;
     }
 
