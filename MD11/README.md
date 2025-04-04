@@ -27,8 +27,8 @@
 
 - Quando uma exceção é lançada, é gerada uma pilha de chamadas internas
   - No topo está a exceção gerada
-  - Logo após a descrição da exceção, está o ponto o erro foi gerado.
-  - Em seguida a caminho por onde o processamento passou, de trás para frente
+  - Logo após a descrição da exceção, está o ponto onde o erro foi gerado.
+  - Em seguida o caminho por onde o processamento passou, de trás para frente
 - Leia de baixo para cima ao analisar o erro gerado.
 
 ### Tratamento
