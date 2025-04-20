@@ -15,6 +15,8 @@ Estrutura de dados na programação é como os dados serão estruturados e manip
     - Neste exemplo, as posições vão de 0 a 3
     - Tentar acessar uma posição inexistente, gera a exceção `ArrayIndexOutOfBoundsException`
     - Para saber o tamanho do array: `int tamanho = nome_array.length;`
+    - Para criar um array inicializado: `double[] notas = { 8.9, 5.6, 8.1, 6.9 };`
+      - Este array inicializado tem 4 posições
   - Atribuindo valor a uma posição: `nome_vetor[posicao] = valor;`. Exemplo: `notas[1] = 9.5;`
   - Lendo valor de uma posição: `variavel = nome_vetor[posicao];`. Exemplo: `double nota = notas[3];`
     - Podem ser usadas estruturas de repetição para leitura de todas as posições. Exemplo: `for (int i = 0; i < notas.length; i++) System.out.println(notas[i]);`
