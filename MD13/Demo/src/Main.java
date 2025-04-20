@@ -12,12 +12,14 @@ public class Main {
             notas[i] = getNota(i + 1);
         }
 
-        System.out.println("\nPrimeira nota: " + notas[0] + "\n");
+        System.out.println("\nNotas:");
 
         for (int i = 0; i < notas.length; i++)
-            System.out.println("Nota " + (i + 1) + " = " + notas[i]);
+            System.out.println("\t" + (i + 1) + "ª nota = " + notas[i]);
 
-        System.out.println("\nMédia: " + getMedia(notas));
+        System.out.println("\n\tMédia: " + getMedia(notas));
+        System.out.println("\tMenor nota: " + getMenorNota(notas));
+        System.out.println("\tMaior nota: " + getMaiorNota(notas));
     }
 
     private static int getTamanhoArray() {
@@ -73,5 +75,23 @@ public class Main {
             notaTotal += nota;
 
         return notaTotal / notas.length;
+    }
+
+    private static double getMaiorNota(double[] notas) {
+        double maiorNota = -1; // Pela regra, nota não pode ser menor que 0
+
+        for (double nota : notas)
+            maiorNota = nota > maiorNota ? nota : maiorNota;
+
+        return maiorNota;
+    }
+
+    private static double getMenorNota(double[] notas) {
+        double menorNota = 11; // Pela regra, nota não pode ser maior que 10
+
+        for (double nota : notas)
+            menorNota = nota < menorNota ? nota : menorNota;
+
+        return menorNota;
     }
 }
