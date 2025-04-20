@@ -6,14 +6,18 @@ public class Main {
 
         double[] notas = new double[getTamanhoArray()];
 
+        System.out.println();
+
         for (int i = 0; i < notas.length; i++) {
             notas[i] = getNota(i + 1);
         }
 
-        System.out.println("Primeira nota: " + notas[0] + "\n");
+        System.out.println("\nPrimeira nota: " + notas[0] + "\n");
 
         for (int i = 0; i < notas.length; i++)
             System.out.println("Nota " + (i + 1) + " = " + notas[i]);
+
+        System.out.println("\nMédia: " + getMedia(notas));
     }
 
     private static int getTamanhoArray() {
@@ -60,5 +64,14 @@ public class Main {
         } while(nota < 0 || nota > 10);
 
         return nota;
+    }
+
+    private static double getMedia(double[] notas) {
+        double notaTotal = 0;
+
+        for (double nota : notas)
+            notaTotal += nota;
+
+        return notaTotal / notas.length;
     }
 }

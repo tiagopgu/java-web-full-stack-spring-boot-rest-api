@@ -19,7 +19,9 @@ Estrutura de dados na programação é como os dados serão estruturados e manip
       - Este array inicializado tem 4 posições
   - Atribuindo valor a uma posição: `nome_vetor[posicao] = valor;`. Exemplo: `notas[1] = 9.5;`
   - Lendo valor de uma posição: `variavel = nome_vetor[posicao];`. Exemplo: `double nota = notas[3];`
-    - Podem ser usadas estruturas de repetição para leitura de todas as posições. Exemplo: `for (int i = 0; i < notas.length; i++) System.out.println(notas[i]);`
+    - Podem ser usadas estruturas de repetição para leitura de todas as posições. Exemplos:
+      - Acesso à posição: `for (int i = 0; i < notas.length; i++) System.out.println(notas[i]);`
+      - Sem acesso à posição: `for (double nota : notas) System.out.println(nota);`
 
 > Dica: Para entrada de dados via console, use a classe `Scanner`, que provê diversos métodos para leitura de diferente tipos de dados. Exemplo:
 > 
