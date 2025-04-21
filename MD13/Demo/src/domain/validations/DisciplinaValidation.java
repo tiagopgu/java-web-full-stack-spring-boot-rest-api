@@ -29,8 +29,20 @@ public abstract class DisciplinaValidation {
                 return false;
 
             for (double nota : notas)
-                if (!validarNota(nota)) return false;
+                if (!validarNota(nota))
+                    return false;
 
+            return true;
+        }
+
+        public static boolean validarNotas(double[][] semestresNotas) {
+            if (semestresNotas == null)
+                return false;
+
+            for (double[] notas : semestresNotas)
+                    if (!validarNotas(notas))
+                        return false;
+            
             return true;
         }
 

@@ -37,15 +37,15 @@ public class Aluno {
         this.disciplinas = disciplinas;
     }
 
-    public Disciplina getDisciplina(int posicao) throws ArrayIndexOutOfBoundsException {
-        return disciplinas[posicao];
+    public Disciplina getDisciplina(int ordem) throws ArrayIndexOutOfBoundsException {
+        return disciplinas[--ordem];
     }
 
-    public void setDisciplina(int posicao, Disciplina disciplina) throws DisciplinaException, ArrayIndexOutOfBoundsException {
+    public void setDisciplina(int ordem, Disciplina disciplina) throws DisciplinaException, ArrayIndexOutOfBoundsException {
         if (!AlunoValidation.Disciplina.validar(disciplina))
             throw new DisciplinaException(AlunoValidation.Disciplina.getMessageValidation());
 
-        disciplinas[posicao] = disciplina;
+        disciplinas[--ordem] = disciplina;
     }
 
     @Override

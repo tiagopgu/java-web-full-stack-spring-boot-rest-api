@@ -18,7 +18,7 @@ public class DisciplinaService extends BaseService {
 
         do {
             try {
-                disciplina = new Disciplina(getNome(ordem), new double[4]);
+                disciplina = new Disciplina(getNome(ordem), new double[2][4]);
             } catch (DomainException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage(), getTituloPrograma(MODULO), JOptionPane.ERROR_MESSAGE);
             } catch (Exception ex) {
@@ -29,12 +29,12 @@ public class DisciplinaService extends BaseService {
         return disciplina;
     }
 
-    public double getNota(int pos) {
-        double nota = -1;
+    public double getNota(int semestre, int ordem) {
+        double nota = DisciplinaValidation.Nota.MIN_NOTA - 1;
 
         do {
             try {
-                String input = JOptionPane.showInputDialog(null, "Nota " + pos + ": ", getTituloPrograma(MODULO), JOptionPane.QUESTION_MESSAGE);
+                String input = JOptionPane.showInputDialog(null, "Nota " + ordem + " - " + semestre + "º semestre: ", getTituloPrograma(MODULO), JOptionPane.QUESTION_MESSAGE);
 
                 if (input == null)
                     System.exit(0);

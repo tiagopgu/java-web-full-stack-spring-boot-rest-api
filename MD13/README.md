@@ -63,3 +63,50 @@ Estrutura de dados na programação é como os dados serão estruturados e manip
 >   }
 > }
 > ~~~
+
+## Matriz
+
+- São chamados de vetores multidimensionais
+- É como um array com outro array em suas posições
+- Podem existir diversos tipos de vetores multidimensionais, mas o mais comum é o bidimensional, com linhas e colunas
+  - Posição das linhas e colunas iniciadas em 0
+  - Posição acessada por chave de valores. Exemplo: `vetor[0][0]`. As chaves representam as linhas e colunas, respectivamente.
+- Quanto mais dimensões existirem, mais complexa fica a manipulação desse tipo de vetor
+- Deve ser tipado
+- Manipulação:
+  - Criando: `double[][] notas = new double[4][3];`
+    - Neste exemplo, o vetor tem 4 linhas e 3 colunas
+  - Inserindo informações em uma posição: `notas[2][1] = 5.9;`
+  - Lendo informação de uma posição: `double nota = notas[1][2];`
+  - Percorrendo uma matriz
+    ~~~java
+    public class Matriz {
+        public static void main(String[] args) {
+            double[][] notas = new double[2][4];
+    
+            notas[0][0] = 5.3;
+            notas[0][1] = 6.4;
+            notas[0][2] = 8.1;
+            notas[0][3] = 6.9;
+    
+            notas[1][0] = 3.6;
+            notas[1][1] = 8.8;
+            notas[1][2] = 7.6;
+            notas[1][3] = 9.1;
+    
+            // Acesso direto à posição
+            for (int linha = 0; linha < notas.length; linha++) {
+                for (int coluna = 0; coluna < notas[linha].length; coluna++) {
+                    System.out.println("[" + linha + "][" + coluna + "] = " + notas[linha][coluna]);
+                }
+            }
+    
+            // Acesso direto ao valor, sem acesso à posição
+            for (double[] linha : notas) {
+                for (double nota : linha) {
+                    System.out.println(nota);
+                }
+            }
+        }
+    }
+    ~~~

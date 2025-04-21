@@ -24,18 +24,32 @@ public class Main {
         for (Aluno aluno : alunos) {
             System.out.println(aluno);
 
-            saida.append("Aluno ").append(aluno.getNome())
-                    .append("\n    Disciplinas:");
+            saida.append("Aluno(a) ").append(aluno.getNome()).append("\n");
 
             for (Disciplina disciplina : aluno.getDisciplinas()) {
-                saida.append("\n        - Nome: ").append(disciplina.getNome())
-                        .append(", Média: ").append(disciplina.getMedia());
+                saida.append("\nDisciplina ").append(disciplina.getNome());
+
+                for (int semestre = 1; semestre <= disciplina.getSemestresNotas().length; semestre++) {
+                    saida.append("\n    Notas ").append(semestre).append("º semestre: ");
+
+                    String separadorNotas = "";
+
+                    for (double nota: disciplina.getNotas(semestre)) {
+                        saida.append(separadorNotas).append(nota);
+                        separadorNotas = ", ";
+                    }
+
+                    saida.append("\n    Média ").append(semestre).append("º semestre: ").append(disciplina.getMedia(semestre));
+                }
+
+                saida.append("\n    Média Final: ").append(disciplina.getMedia()).append("\n");
             }
 
-            saida.append("\n\n");
+            JOptionPane.showMessageDialog(null, saida, tituloPrograma, JOptionPane.INFORMATION_MESSAGE);
+            saida.setLength(0);
         }
 
-        JOptionPane.showMessageDialog(null, saida, tituloPrograma, JOptionPane.INFORMATION_MESSAGE);
+
     }
 
     private static void carregarAlunos(Aluno[] alunos) {
@@ -47,7 +61,7 @@ public class Main {
     }
 
     private static void carregarDisciplinas(Aluno aluno) {
-        for (int i = 0; i < aluno.getDisciplinas().length; i++) {
+        for (int i = 1; i <= aluno.getDisciplinas().length; i++) {
             boolean sucesso = false;
 
             do {
@@ -68,10 +82,10 @@ public class Main {
     private static void carregarNotas(Disciplina disciplina) {
         boolean sucesso = false;
 
-        for (int i = 0; i < disciplina.getNotas().length; i++) {
+        for (int semestre = 1; semestre <= disciplina.getSemestresNotas().length; semestre++) {
             do {
                 try {
-                    alunoService.setNota(disciplina, i);
+                    alunoService.setNota(disciplina, semestre);
                     sucesso = true;
                 } catch (NotaException ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage(), "Nota Inválida", JOptionPane.ERROR_MESSAGE);

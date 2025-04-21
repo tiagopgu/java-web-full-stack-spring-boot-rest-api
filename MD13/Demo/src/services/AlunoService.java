@@ -33,16 +33,25 @@ public class AlunoService extends BaseService {
         return aluno;
     }
 
-    public void setDisciplina(Aluno aluno, int posicao) throws DisciplinaException {
-        Disciplina disciplina = disciplinaService.getDisciplina(posicao + 1);
+    public void setDisciplina(Aluno aluno, int ordem) throws DisciplinaException {
+        Disciplina disciplina = disciplinaService.getDisciplina(ordem);
 
-        aluno.setDisciplina(posicao, disciplina);
+        aluno.setDisciplina(ordem, disciplina);
     }
 
-    public void setNota(Disciplina disciplina, int posicao) throws NotaException {
-        double nota = disciplinaService.getNota(posicao + 1);
+    public void setNota(Disciplina disciplina, int semestre) throws NotaException {
+        double[] notas = new double[disciplina.getNotas(semestre).length];
 
-        disciplina.setNota(posicao, nota);
+        for (int i = 0; i < notas.length; i++)
+            notas[i] = disciplinaService.getNota(semestre, i + 1);
+
+        disciplina.setNota(semestre, notas);
+    }
+
+    public void setNota(Disciplina disciplina, int semestre, int ordem) throws NotaException {
+        double nota = disciplinaService.getNota(semestre, ordem);
+
+        disciplina.setNota(semestre, ordem, nota);
     }
 
     private String getNome(int ordem) {
