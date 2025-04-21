@@ -1,97 +1,84 @@
-import java.util.Scanner;
+import domain.Aluno;
+import domain.Disciplina;
+import domain.exceptions.DisciplinaException;
+import domain.exceptions.NotaException;
+import services.AlunoService;
+import services.BaseService;
+import services.DisciplinaService;
+
+import javax.swing.*;
 
 public class Main {
+    private final static DisciplinaService disciplinaService = new DisciplinaService();
+    private final static AlunoService alunoService = new AlunoService(disciplinaService);
+
+    private final static String tituloPrograma = "Registro Escolar";
+
     public static void main(String[] args) {
-        System.out.println("\nEstudos dos Arrays\n");
+        BaseService.setTituloPrograma(tituloPrograma);
+        Aluno[] alunos = new Aluno[BaseService.getQtdInsercao("Quantidade de alunos")];
+        carregarAlunos(alunos);
 
-        double[] notas = new double[getTamanhoArray()];
+        StringBuilder saida = new StringBuilder();
 
-        System.out.println();
+        for (Aluno aluno : alunos) {
+            System.out.println(aluno);
 
-        for (int i = 0; i < notas.length; i++) {
-            notas[i] = getNota(i + 1);
+            saida.append("Aluno ").append(aluno.getNome())
+                    .append("\n    Disciplinas:");
+
+            for (Disciplina disciplina : aluno.getDisciplinas()) {
+                saida.append("\n        - Nome: ").append(disciplina.getNome())
+                        .append(", Média: ").append(disciplina.getMedia());
+            }
+
+            saida.append("\n\n");
         }
 
-        System.out.println("\nNotas:");
-
-        for (int i = 0; i < notas.length; i++)
-            System.out.println("\t" + (i + 1) + "ª nota = " + notas[i]);
-
-        System.out.println("\n\tMédia: " + getMedia(notas));
-        System.out.println("\tMenor nota: " + getMenorNota(notas));
-        System.out.println("\tMaior nota: " + getMaiorNota(notas));
+        JOptionPane.showMessageDialog(null, saida, tituloPrograma, JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private static int getTamanhoArray() {
-        Scanner console = new Scanner(System.in);
-        int valor = 0;
-        String msgErro = "Valor inválido: deve ser informado um número maior que 0.";
-
-        do {
-            System.out.print("Informe a quantidade de notas: ");
-
-            try {
-                valor = console.nextInt();
-
-                if (valor <= 0)
-                    System.out.println(msgErro + "\n");
-            } catch (Exception ex) {
-                System.out.println(msgErro + "\n");
-            }
-
-            console.nextLine();
-        } while (valor <= 0);
-
-        return valor;
+    private static void carregarAlunos(Aluno[] alunos) {
+        for (int i = 0; i < alunos.length; i++) {
+            Aluno aluno = alunoService.getAluno(i + 1);
+            carregarDisciplinas(aluno);
+            alunos[i] = aluno;
+        }
     }
 
-    private static double getNota(int pos) {
-        Scanner console = new Scanner(System.in);
-        double nota = -1;
-        String msgErro = "Nota inválida: deve estar entre 0 e 10";
+    private static void carregarDisciplinas(Aluno aluno) {
+        for (int i = 0; i < aluno.getDisciplinas().length; i++) {
+            boolean sucesso = false;
 
-        do {
-            System.out.print("Informe a " + pos + "ª nota: ");
+            do {
+                try {
+                    alunoService.setDisciplina(aluno, i);
+                    sucesso = true;
+                } catch (DisciplinaException ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Disciplina Inválida", JOptionPane.ERROR_MESSAGE);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Erro inesperado: " + ex.getMessage(), "Disciplina Inválida", JOptionPane.ERROR_MESSAGE);
+                }
+            } while (!sucesso);
 
-            try {
-                nota = console.nextDouble();
-
-                if (nota < 0 || nota > 10)
-                    System.out.println(msgErro + "\n");
-            } catch (Exception ex) {
-                System.out.println(msgErro + "\n");
-            }
-
-            console.nextLine();
-        } while(nota < 0 || nota > 10);
-
-        return nota;
+            carregarNotas(aluno.getDisciplina(i));
+        }
     }
 
-    private static double getMedia(double[] notas) {
-        double notaTotal = 0;
+    private static void carregarNotas(Disciplina disciplina) {
+        boolean sucesso = false;
 
-        for (double nota : notas)
-            notaTotal += nota;
-
-        return notaTotal / notas.length;
-    }
-
-    private static double getMaiorNota(double[] notas) {
-        double maiorNota = -1; // Pela regra, nota não pode ser menor que 0
-
-        for (double nota : notas)
-            maiorNota = nota > maiorNota ? nota : maiorNota;
-
-        return maiorNota;
-    }
-
-    private static double getMenorNota(double[] notas) {
-        double menorNota = 11; // Pela regra, nota não pode ser maior que 10
-
-        for (double nota : notas)
-            menorNota = nota < menorNota ? nota : menorNota;
-
-        return menorNota;
+        for (int i = 0; i < disciplina.getNotas().length; i++) {
+            do {
+                try {
+                    alunoService.setNota(disciplina, i);
+                    sucesso = true;
+                } catch (NotaException ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Nota Inválida", JOptionPane.ERROR_MESSAGE);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Erro inesperado: " + ex.getMessage(), "Nota Inválida", JOptionPane.ERROR_MESSAGE);
+                }
+            } while (!sucesso);
+        }
     }
 }
