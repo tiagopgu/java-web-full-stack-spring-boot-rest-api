@@ -64,6 +64,25 @@ Estrutura de dados na programação é como os dados serão estruturados e manip
 > }
 > ~~~
 
+### Método Split de String
+
+- Quebra um texto, colocando cada parte separada em um array
+- O texto é quebrado no ponto que coincide com o caractere informado no método
+- Exemplo:
+  ~~~java
+  public class SplitString {
+    public static void main(String[] args) {
+        String texto = "Valor 1;Valor 2;Valor 3;Valor 4";
+  
+        // Array terá 4 posições
+        String[] valores = texto.split(";");
+  
+        // Acessa o "Valor 3"
+        String valor = valores[2]; 
+    }
+  }
+  ~~~
+
 ## Matriz
 
 - São chamados de vetores multidimensionais
