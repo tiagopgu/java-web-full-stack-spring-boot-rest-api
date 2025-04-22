@@ -8,6 +8,9 @@ import services.BaseService;
 import services.DisciplinaService;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     private final static DisciplinaService disciplinaService = new DisciplinaService();
@@ -22,8 +25,8 @@ public class Main {
             System.exit(0);
 
         if (optConfirm == JOptionPane.YES_OPTION) {
-            Aluno[] alunos = carregarAlunosTeste();
-            mostrarAlunos(alunos);
+            List<Aluno> alunos = carregarAlunosTeste();
+            mostrarAlunos(alunos.toArray(new Aluno[0]));
         } else {
             BaseService.setTituloPrograma(tituloPrograma);
             Aluno[] alunos = new Aluno[BaseService.getQtdInsercao("Quantidade de alunos")];
@@ -80,6 +83,9 @@ public class Main {
         StringBuilder saida = new StringBuilder();
 
         for (Aluno aluno : alunos) {
+            if (aluno == null)
+                continue;
+
             System.out.println(aluno);
 
             saida.append("Aluno(a) ").append(aluno.getNome()).append("\n");
@@ -108,10 +114,10 @@ public class Main {
         }
     }
 
-    private static Aluno[] carregarAlunosTeste() {
+    private static List<Aluno> carregarAlunosTeste() {
         String[] registros = getRegistrosTeste();
         StringBuilder registroErro = new StringBuilder();
-        Aluno[] alunos = new Aluno[registros.length];
+        Aluno[] alunosAux = new Aluno[registros.length];
         int qtdAlunosLidos = 0;
 
         for (String registro : registros) {
@@ -121,7 +127,7 @@ public class Main {
                 Disciplina[] disciplinas = getDisciplinasTeste(registro);
                 Aluno aluno = new Aluno(nomeAluno, disciplinas);
 
-                alunos[qtdAlunosLidos++] = aluno;
+                alunosAux[qtdAlunosLidos++] = aluno;
             } catch (Exception ex) {
                 registroErro.append(registro)
                         .append(";").append(ex.getMessage()).append("\n");
@@ -130,7 +136,7 @@ public class Main {
 
         System.out.println(registroErro);
 
-        return alunos;
+        return Arrays.asList( alunosAux);
     }
 
     private static String[] getRegistrosTeste() {

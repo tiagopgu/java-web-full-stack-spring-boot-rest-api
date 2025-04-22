@@ -83,6 +83,14 @@ Estrutura de dados na programação é como os dados serão estruturados e manip
   }
   ~~~
 
+### Conversão entre lista e array
+
+- Para converter um array para lista: `List<tipo> list = Arrays.asList(array);`
+  - Para usar `Arrays`, necessário importar o pacote `java.utils`
+  - Tipo da lista deve ser o mesmo tipo do array
+- Para converter uma lista para array: `String[] arr = list.toArray(new String[0]);`
+  - Tipo da lista deve ser o mesmo do array
+
 ## Matriz
 
 - São chamados de vetores multidimensionais
