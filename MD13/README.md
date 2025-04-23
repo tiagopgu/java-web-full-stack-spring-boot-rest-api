@@ -66,8 +66,8 @@ Estrutura de dados na programação é como os dados serão estruturados e manip
 
 ### Método Split de String
 
-- Quebra um texto, colocando cada parte separada em um array
-- O texto é quebrado no ponto que coincide com o caractere informado no método
+- Retorna um array onde em cada posição terá uma parte do texto, que foi quebrado no ponto que coincide com o caractere informado no método
+  - O caractere usado como ponto de quebra não estará presente no array.
 - Exemplo:
   ~~~java
   public class SplitString {
