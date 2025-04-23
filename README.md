@@ -24,3 +24,6 @@ Acesse as anotações de cada módulo clicando nos links abaixo.
          2. HashMap
 7. [Herança, Polimorfismo e Interface](MD10/README.md)
 8. [Tratamento de Erro e Exceções](MD11/README.md)
+9. [Estrutura de Dados](MD13/README.md)
+   1. Array
+   2. Matrizes
