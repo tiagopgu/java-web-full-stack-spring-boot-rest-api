@@ -87,7 +87,15 @@
   public class TesteExcecao {
     public static void main(String[] args) {
         String valor = System.in.read();
-        operacao(valor);
+  
+        // Como o método abaixo indica o lançamento de exceção customizada na sua assinatura, é obrigatório a chamada dentro do bloco try/catch
+        try {
+            operacao(valor);
+        } catch (ExemploException ex) {
+            // Tratamento específico para esta exceção
+        } catch (Exception ex) {
+            // Tratando qualquer tipo de exceção
+        }
     }
   
     private static int operacao(String valor) throws ExemploException {
