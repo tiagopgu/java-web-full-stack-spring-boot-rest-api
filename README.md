@@ -27,3 +27,4 @@ Acesse as anotações de cada módulo clicando nos links abaixo.
 9. [Estrutura de Dados](MD13/README.md)
    1. Array
    2. Matrizes
+10. [Thread e Programação Paralela ou Concorrente](MD14/README.md)
