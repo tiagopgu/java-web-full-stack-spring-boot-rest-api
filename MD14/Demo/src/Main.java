@@ -1,7 +1,24 @@
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Iniciando o envio de e-mails...");
 
+        new Thread() {
+            public void run() {
+                System.out.println("Iniciando o envio de e-mails...");
+
+                enviarEmails();
+
+                System.out.println("Finalizando o processamento de emails");
+
+                JOptionPane.showMessageDialog(null, "Envio de e-mail finalizado.");
+            }
+        }.start();
+
+        JOptionPane.showMessageDialog(null, "Envio de email em andamento. Você pode continuar acessando outras áreas do sistema. Você será notificado quando o envio de email finalizar.");
+    }
+
+    public static void enviarEmails() {
         for (int i = 0; i < 10; i++) {
             System.out.println("Processando e-mail 'teste" + (i + 1) + "@teste.com.br'");
 
@@ -17,7 +34,5 @@ public class Main {
                 throw new RuntimeException(e);
             }
         }
-
-        System.out.println("Finalizando o processamento de emails");
     }
 }
