@@ -15,16 +15,32 @@ import java.lang;
 
 public class Demo {
     public static void main(String[] args) {
+        // A seguir formas de iniciar uma thread
         
         // Aqui inicia uma thread
-        new Thread(() -> {
-            
+        new Thread() {
             // Dentro deste método estará o código que será executado em paralelo
-            System.out.println("Executando processo em paralelo");
-                
-            }).start(); // Aqui diz para iniciar a execução em paralelo do processo
+            public void run() {
+                System.out.println("Executando processo 1.");
+                System.out.println("Mais código do processo 1.");
+            }
+        }.start(); // Aqui diz para iniciar a execução em paralelo do processo
         
-        System.out.println("Qualquer código após a definição da thread será executado em paralelo com a thread");
+        // Usando método anônimo para dizer o que executar na thread
+        new Thread(() -> {
+            System.out.println("Executando processo 2.");
+            System.out.println("Mais código do processo 2.");
+        }).start();
+        
+        // Thread que recebe referência direta de um método a ser executado
+        new Thread(Main::outroMetodo).start();
+        
+        System.out.println("Qualquer código após a definição das threads será executado em paralelo.");
+    }
+    
+    private static void outroMetodo() {
+        System.out.println("Executando processo 3.");
+        System.out.println("Mais código do processo 3.");
     }
 }
 ~~~~
